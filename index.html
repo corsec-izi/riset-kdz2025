@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporan Riset KDZ 2025 - IZI</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Custom Colors Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primaryGreen: '#8EC63F', // C:44 M:0 Y:99 K:0
-                        grey: '#808080',         // C:0 M:0 Y:0 K:50
-                        darkGrey: '#4D4D4D',     // C:0 M:0 Y:0 K:70
+                        primaryGreen: '#8EC63F', 
+                        grey: '#808080',         
+                        darkGrey: '#4D4D4D',     
                         slateBg: '#F2F2F2',
                         lightGreenBg: '#F4FAEB'
                     },
@@ -40,16 +37,6 @@
             color: #4D4D4D;
         }
         
-        /* Animation Classes */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .tab-btn.active {
             background-color: white;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -59,201 +46,248 @@
         .tab-btn.active svg {
             color: #16a34a; /* green-600 */
         }
+
+        /* Mobile nav active state */
+        .mobile-btn.active {
+            background-color: #8EC63F;
+            color: white;
+            border-color: #8EC63F;
+        }
+        
+        /* Hide Scrollbar for mobile menu */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="selection:bg-green-100 min-h-screen flex flex-col">
 
-    <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo & Title -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm bg-primaryGreen">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-sm bg-primaryGreen flex-shrink-0">
                         IZI
                     </div>
-                    <div class="leading-tight">
-                        <h1 class="font-bold text-lg tracking-tight text-darkGrey">Laporan Riset KDZ 2025</h1>
-                        <p class="text-xs font-medium text-grey">Divisi SRD - Inisiatif Zakat Indonesia</p>
+                    <div class="leading-tight overflow-hidden">
+                        <h1 class="font-bold text-lg tracking-tight text-darkGrey truncate">Laporan Riset KDZ</h1>
+                        <p class="text-xs font-medium text-grey truncate">Divisi SRD - 2025</p>
                     </div>
                 </div>
                 
-                <!-- Desktop Tabs -->
                 <div class="hidden md:flex space-x-1 bg-gray-50 p-1 rounded-lg">
-                    <button onclick="switchTab('ringkasan')" class="tab-btn active flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-ringkasan">
-                        <i data-lucide="activity" class="w-4 h-4 mr-2"></i> Ringkasan Eksekutif
+                    <button onclick="scrollToSection('ringkasan')" class="tab-btn active flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-ringkasan">
+                        <i data-lucide="activity" class="w-4 h-4 mr-2"></i> Ringkasan
                     </button>
-                    <button onclick="switchTab('demografi')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-demografi">
-                        <i data-lucide="users" class="w-4 h-4 mr-2"></i> Profil Mustahik
+                    <button onclick="scrollToSection('demografi')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-demografi">
+                        <i data-lucide="users" class="w-4 h-4 mr-2"></i> Demografi
                     </button>
-                    <button onclick="switchTab('ekonomi')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-ekonomi">
-                        <i data-lucide="trending-up" class="w-4 h-4 mr-2"></i> Dampak Ekonomi
+                    <button onclick="scrollToSection('ekonomi')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-ekonomi">
+                        <i data-lucide="trending-up" class="w-4 h-4 mr-2"></i> Ekonomi
                     </button>
-                    <button onclick="switchTab('spiritual')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-spiritual">
-                        <i data-lucide="heart" class="w-4 h-4 mr-2"></i> CIBEST & Spiritual
+                    <button onclick="scrollToSection('spiritual')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-spiritual">
+                        <i data-lucide="heart" class="w-4 h-4 mr-2"></i> Spiritual
                     </button>
-                    <button onclick="switchTab('program')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-program">
-                        <i data-lucide="target" class="w-4 h-4 mr-2"></i> Performa Program
+                    <button onclick="scrollToSection('program')" class="tab-btn flex items-center px-4 py-2 text-sm font-medium rounded-md transition-all text-gray-500 hover:text-gray-700 hover:bg-gray-100" id="btn-program">
+                        <i data-lucide="target" class="w-4 h-4 mr-2"></i> Program
                     </button>
                 </div>
             </div>
-            <!-- Mobile Menu (Simple horizontal scroll) -->
-            <div class="md:hidden overflow-x-auto pb-2 flex space-x-2">
-                <button onclick="switchTab('ringkasan')" class="whitespace-nowrap px-3 py-1 text-xs border rounded-full bg-primaryGreen text-white">Ringkasan</button>
-                <button onclick="switchTab('demografi')" class="whitespace-nowrap px-3 py-1 text-xs border rounded-full bg-white">Demografi</button>
-                <button onclick="switchTab('ekonomi')" class="whitespace-nowrap px-3 py-1 text-xs border rounded-full bg-white">Ekonomi</button>
-                <button onclick="switchTab('spiritual')" class="whitespace-nowrap px-3 py-1 text-xs border rounded-full bg-white">Spiritual</button>
-                <button onclick="switchTab('program')" class="whitespace-nowrap px-3 py-1 text-xs border rounded-full bg-white">Program</button>
+            <div class="md:hidden overflow-x-auto pb-3 pt-1 flex space-x-2 no-scrollbar px-1">
+                <button onclick="scrollToSection('ringkasan')" id="mob-ringkasan" class="mobile-btn active whitespace-nowrap px-4 py-1.5 text-xs font-medium border rounded-full bg-white text-gray-600 transition-colors shadow-sm">Ringkasan</button>
+                <button onclick="scrollToSection('demografi')" id="mob-demografi" class="mobile-btn whitespace-nowrap px-4 py-1.5 text-xs font-medium border rounded-full bg-white text-gray-600 transition-colors shadow-sm">Demografi</button>
+                <button onclick="scrollToSection('ekonomi')" id="mob-ekonomi" class="mobile-btn whitespace-nowrap px-4 py-1.5 text-xs font-medium border rounded-full bg-white text-gray-600 transition-colors shadow-sm">Ekonomi</button>
+                <button onclick="scrollToSection('spiritual')" id="mob-spiritual" class="mobile-btn whitespace-nowrap px-4 py-1.5 text-xs font-medium border rounded-full bg-white text-gray-600 transition-colors shadow-sm">Spiritual</button>
+                <button onclick="scrollToSection('program')" id="mob-program" class="mobile-btn whitespace-nowrap px-4 py-1.5 text-xs font-medium border rounded-full bg-white text-gray-600 transition-colors shadow-sm">Program</button>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+    <main class="max-w-6xl mx-auto px-4 py-6 md:py-8 flex-grow w-full space-y-20 md:space-y-24">
         
-        <!-- CONTENT: RINGKASAN -->
-        <div id="tab-ringkasan" class="tab-content fade-in space-y-8">
-            <div class="text-center py-12 px-4 rounded-3xl bg-white border border-gray-100 shadow-sm relative overflow-hidden">
+        <div id="tab-ringkasan" class="section-content scroll-mt-32 space-y-8">
+            <div class="text-center py-10 px-4 rounded-3xl bg-white border border-gray-100 shadow-sm relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-2 bg-primaryGreen"></div>
-                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase mb-4 bg-green-50 text-primaryGreen">
+                <span class="inline-block px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-wide uppercase mb-4 bg-green-50 text-primaryGreen">
                     Laporan Kaji Dampak Zakat (KDZ)
                 </span>
-                <h2 class="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight text-darkGrey">
+                <h2 class="text-2xl md:text-5xl font-extrabold mb-4 md:mb-6 tracking-tight text-darkGrey">
                     Dampak Zakat Terhadap <br />
                     <span class="text-primaryGreen">Kemandirian Ekonomi</span>
                 </h2>
-                <p class="max-w-3xl mx-auto text-lg leading-relaxed text-gray-500">
-                    Laporan ini menyajikan hasil kaji dampak zakat terhadap 195 mustahik penerima program pemberdayaan ekonomi IZI. Temuan menunjukkan bahwa zakat produktif berperan dalam mendorong kemandirian ekonomi mustahik, ditandai dengan <b>peningkatan pendapatan, perbaikan kesejahteraan spiritual, serta percepatan waktu keluar dari kemiskinan</b>  dibandingkan tanpa intervensi.
+                <p class="max-w-3xl mx-auto text-sm md:text-lg leading-relaxed text-gray-500">
+                    Studi terhadap 195 mustahik penerima program IZI menunjukkan bahwa zakat produktif secara signifikan <b>meningkatkan pendapatan</b> dan <b>mempercepat pengentasan kemiskinan</b>.
                 </p>
             </div>
 
-            <!-- Stat Cards Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider mb-1 text-grey">Total Responden</p>
-                            <h3 class="text-3xl font-extrabold mb-1 text-primaryGreen">195</h3>
-                            <p class="text-sm font-medium text-darkGrey">Mustahik</p>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-1 text-grey">Total Responden</p>
+                            <h3 class="text-2xl md:text-3xl font-extrabold mb-1 text-primaryGreen">195</h3>
+                            <p class="text-xs md:text-sm font-medium text-darkGrey">Mustahik</p>
                         </div>
-                        <div class="p-2 rounded-full bg-gray-50 text-gray-400">
+                        <div class="hidden md:block p-2 rounded-full bg-gray-50 text-gray-400">
                             <i data-lucide="users" class="w-5 h-5"></i>
                         </div>
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider mb-1 text-grey">Kenaikan Income</p>
-                            <h3 class="text-3xl font-extrabold mb-1 text-primaryGreen">+35,9%</h3>
-                            <p class="text-sm font-medium text-darkGrey">Rata-rata Pendapatan</p>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-1 text-grey">Kenaikan Income</p>
+                            <h3 class="text-2xl md:text-3xl font-extrabold mb-1 text-primaryGreen">+35,9%</h3>
+                            <p class="text-xs md:text-sm font-medium text-darkGrey">Rata-rata</p>
                         </div>
-                        <div class="p-2 rounded-full bg-gray-50 text-gray-400">
+                        <div class="hidden md:block p-2 rounded-full bg-gray-50 text-gray-400">
                             <i data-lucide="trending-up" class="w-5 h-5"></i>
                         </div>
                     </div>
                 </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider mb-1 text-grey">Pengentasan Total</p>
-                            <h3 class="text-3xl font-extrabold mb-1 text-primaryGreen">68%</h3>
-                            <p class="text-sm font-medium text-darkGrey">Keluar dari 5 Zona Miskin</p>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-1 text-grey">Pengentasan</p>
+                            <h3 class="text-2xl md:text-3xl font-extrabold mb-1 text-primaryGreen">68%</h3>
+                            <p class="text-xs md:text-sm font-medium text-darkGrey">Keluar Zona Miskin</p>
                         </div>
-                        <div class="p-2 rounded-full bg-gray-50 text-gray-400">
+                        <div class="hidden md:block p-2 rounded-full bg-gray-50 text-gray-400">
                             <i data-lucide="shield" class="w-5 h-5"></i>
                         </div>
                     </div>
                 </div>
-                <!-- Card 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div class="bg-white p-4 md:p-6 rounded-xl shadow-sm border border-gray-100">
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-xs font-bold uppercase tracking-wider mb-1 text-grey">Transformasi</p>
-                            <h3 class="text-3xl font-extrabold mb-1 text-primaryGreen">11%</h3>
-                            <p class="text-sm font-medium text-darkGrey">Menjadi Muzakki</p>
+                            <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-1 text-grey">Transformasi</p>
+                            <h3 class="text-2xl md:text-3xl font-extrabold mb-1 text-primaryGreen">11%</h3>
+                            <p class="text-xs md:text-sm font-medium text-darkGrey">Menjadi Muzakki</p>
                         </div>
-                        <div class="p-2 rounded-full bg-gray-50 text-gray-400">
+                        <div class="hidden md:block p-2 rounded-full bg-gray-50 text-gray-400">
                             <i data-lucide="target" class="w-5 h-5"></i>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Metodologi -->
-            <div class="bg-white rounded-xl p-8 border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
-                <div class="flex-1">
-                    <h3 class="text-xl font-bold mb-4 text-darkGrey">Metodologi Penelitian</h3>
-                    <ul class="space-y-3 text-sm text-gray-600">
-                        <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 mr-2 mt-1 shrink-0 text-primaryGreen"></i> <b>Pendekatan:</b> Kuantitatif (Survei Before-After)</li>
-                        <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 mr-2 mt-1 shrink-0 text-primaryGreen"></i> <b>Lokasi:</b> 17 Wilayah (Termasuk DKJ, Jabar, Sumbar, Jateng, dll)</li>
-                        <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 mr-2 mt-1 shrink-0 text-primaryGreen"></i> <b>Analisis:</b> CIBEST Model, Indikator Kemiskinan Umum (FGT), Time to Exit Poverty</li>
-                        <li class="flex items-start"><i data-lucide="check-circle" class="w-4 h-4 mr-2 mt-1 shrink-0 text-primaryGreen"></i> <b>Sampling:</b> Purposive Sampling (Penerima manfaat &gt;6 bulan)</li>
+            <div class="bg-white rounded-xl p-6 md:p-8 border border-gray-100 flex flex-col md:flex-row gap-8 items-start">
+                <div class="flex-1 w-full">
+                    <h3 class="text-xl font-bold mb-6 text-darkGrey">Metodologi Penelitian</h3>
+                    <ul class="space-y-4 text-sm text-gray-600">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 shrink-0 text-primaryGreen"></i> 
+                            <span class="leading-relaxed">
+                                <span class="font-bold text-darkGrey">Pendekatan:</span> <br class="md:hidden"> Kuantitatif (Survei Before-After)
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 shrink-0 text-primaryGreen"></i> 
+                            <span class="leading-relaxed">
+                                <span class="font-bold text-darkGrey">Lokasi:</span> <br class="md:hidden"> 17 Wilayah (DKJ, Jabar, Sumbar, Jateng, dll)
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 shrink-0 text-primaryGreen"></i> 
+                            <span class="leading-relaxed">
+                                <span class="font-bold text-darkGrey">Analisis:</span> <br class="md:hidden"> CIBEST Model, Indikator Kemiskinan (FGT), Time to Exit
+                            </span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 mt-0.5 shrink-0 text-primaryGreen"></i> 
+                            <span class="leading-relaxed">
+                                <span class="font-bold text-darkGrey">Sampling:</span> <br class="md:hidden"> Purposive (Penerima manfaat &gt;6 bulan)
+                            </span>
+                        </li>
                     </ul>
                 </div>
-                <div class="w-full md:w-1/3 bg-gray-50 p-6 rounded-lg text-center">
-                    <i data-lucide="book-open" class="w-12 h-12 mx-auto mb-4 opacity-20 text-darkGrey"></i>
-                    <p class="text-sm italic text-gray-500">
-                        "Keberhasilan program zakat tidak hanya diukur dari dana tersalurkan, tapi dari perubahan nyata kualitas hidup mustahik."
+                <div class="w-full md:w-1/3 bg-gray-50 p-6 rounded-lg text-center mt-2 md:mt-0">
+                    <i data-lucide="book-open" class="w-10 h-10 mx-auto mb-3 opacity-20 text-darkGrey"></i>
+                    <p class="text-xs md:text-sm italic text-gray-500 leading-relaxed">
+                        "Keberhasilan zakat diukur dari perubahan nyata kualitas hidup mustahik."
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- CONTENT: DEMOGRAFI -->
-        <div id="tab-demografi" class="tab-content hidden fade-in space-y-6">
+        <div id="tab-demografi" class="section-content scroll-mt-32 space-y-6">
             <div class="mb-8 border-b border-grey pb-4">
-                <h2 class="text-2xl font-bold flex items-center mb-2 text-darkGrey">
+                <h2 class="text-xl md:text-2xl font-bold flex items-center mb-2 text-darkGrey">
                     <div class="p-2 rounded-lg mr-3 text-white bg-primaryGreen">
-                        <i data-lucide="users" class="w-6 h-6"></i>
+                        <i data-lucide="users" class="w-5 h-5 md:w-6 md:h-6"></i>
                     </div>
-                    Profil Demografi Mustahik
+                    Profil Mustahik
                 </h2>
-                <p class="text-sm ml-14 text-grey">Analisis karakteristik penerima manfaat program</p>
+                <p class="text-xs md:text-sm ml-12 md:ml-14 text-grey">Karakteristik penerima manfaat</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 class="font-bold mb-6 flex items-center text-darkGrey">
-                        <i data-lucide="users" class="w-4 h-4 mr-2 text-gray-400"></i>
-                        Peran dalam Keluarga
-                    </h3>
-                    <div class="space-y-4">
-                        <!-- Progress Bar Component Logic -->
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Ibu (Istri/Kepala Keluarga)</span>
-                                <span class="font-bold text-primaryGreen">49.23%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-primaryGreen" style="width: 49.23%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Ayah (Suami)</span>
-                                <span class="font-bold text-grey">39.49%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-grey" style="width: 39.49%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Anak & Lainnya</span>
-                                <span class="font-bold text-gray-400">11.28%</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-gray-300" style="width: 11.28%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col justify-between h-full">
+    <div>
+        <div class="flex items-start justify-between mb-4">
+            <div>
+                <h3 class="font-bold text-darkGrey text-lg">
+                    Posisi Responden
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">
+                    Status hubungan keluarga dari 195 mustahik penerima manfaat.
+                </p>
+            </div>
+            <div class="p-2 bg-green-50 rounded-lg">
+                <i data-lucide="users" class="w-5 h-5 text-primaryGreen"></i>
+            </div>
+        </div>
 
-                <!-- Card 2 -->
+        <div class="space-y-5">
+            <div class="group">
+                <div class="flex justify-between text-sm mb-1.5">
+                    <span class="font-semibold text-darkGrey">Ibu (Istri/Kepala Keluarga)</span>
+                    <span class="font-bold text-primaryGreen">49.2%</span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2.5">
+                    <div class="h-2.5 rounded-full bg-primaryGreen relative" style="width: 49.23%"></div>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="flex justify-between text-sm mb-1.5">
+                    <span class="font-semibold text-darkGrey">Ayah (Suami)</span>
+                    <span class="font-bold text-gray-400">39.5%</span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2.5">
+                    <div class="h-2.5 rounded-full bg-gray-400" style="width: 39.49%"></div>
+                </div>
+            </div>
+
+            <div class="group">
+                <div class="flex justify-between text-sm mb-1.5">
+                    <span class="font-semibold text-darkGrey">Anak & Kerabat Lainnya</span>
+                    <span class="font-bold text-gray-400">11.3%</span>
+                </div>
+                <div class="w-full bg-gray-100 rounded-full h-2.5">
+                    <div class="h-2.5 rounded-full bg-gray-300" style="width: 11.28%"></div>
+                </div>
+                <p class="text-[10px] text-gray-400 mt-1 italic">
+                    *Termasuk menantu, cucu, orangtua, dll.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-6 pt-4 border-t border-dashed border-gray-200">
+        <div class="flex gap-3">
+            <i data-lucide="info" class="w-4 h-4 text-primaryGreen mt-0.5 shrink-0"></i>
+            <div class="text-xs text-gray-600 leading-relaxed text-justify">
+                <span class="font-bold text-darkGrey">Insight:</span> <br/>
+                Penerima manfaat didominasi oleh <b class="text-primaryGreen">Ibu (Istri)</b>. Hal ini menunjukkan peran ganda perempuan sebagai pengelola rumah tangga sekaligus penopang ekonomi keluarga.
+            </div>
+        </div>
+    </div>
+</div>
+
                 <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
                     <h3 class="font-bold mb-6 flex items-center text-darkGrey">
                         <i data-lucide="briefcase" class="w-4 h-4 mr-2 text-gray-400"></i>
@@ -261,121 +295,107 @@
                     </h3>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 rounded-lg bg-gray-50 text-center">
-                            <div class="text-sm text-gray-500 mb-1">Status Asnaf</div>
-                            <div class="font-bold text-2xl text-darkGrey">90,3%</div>
-                            <div class="text-xs font-semibold uppercase tracking-wide text-gray-400">Miskin</div>
+                            <div class="text-xs text-gray-500 mb-1">Status Asnaf</div>
+                            <div class="font-bold text-xl text-darkGrey">90,3%</div>
+                            <div class="text-[10px] font-semibold uppercase tracking-wide text-gray-400">Miskin</div>
                         </div>
                         <div class="p-4 rounded-lg bg-gray-50 text-center">
-                            <div class="text-sm text-gray-500 mb-1">Tabungan Awal</div>
-                            <div class="font-bold text-2xl text-red-500">50,8%</div>
-                            <div class="text-xs font-semibold uppercase tracking-wide text-gray-400">Tidak Punya</div>
+                            <div class="text-xs text-gray-500 mb-1">Tabungan Awal</div>
+                            <div class="font-bold text-xl text-red-500">50,8%</div>
+                            <div class="text-[10px] font-semibold uppercase tracking-wide text-gray-400">Nihil</div>
                         </div>
                     </div>
                     <div class="mt-6">
-                        <p class="text-sm text-gray-600 mb-2 font-medium">Lama Menerima Bantuan:</p>
-                        <div class="flex gap-2">
-                            <span class="px-3 py-1 bg-green-100 text-green-700 text-xs rounded-full">Prioritas I: &gt; 6 Bulan</span>
-                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">Prioritas II: Tahun Lalu</span>
+                        <p class="text-xs text-gray-600 mb-2 font-medium">Lama Bantuan:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-green-100 text-green-700 text-[10px] rounded-full">Prioritas I: &gt; 6 Bulan</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-600 text-[10px] rounded-full">Prioritas II: Tahun Lalu</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="mt-6 p-5 rounded-r-lg border-l-4 bg-white shadow-sm border-darkGrey">
-                <h4 class="flex items-center font-bold mb-2 text-darkGrey">
+                <h4 class="flex items-center font-bold mb-2 text-darkGrey text-sm">
                     <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
-                    Rekomendasi Kebijakan
+                    Insight & Kebijakan
                 </h4>
                 <p class="text-sm leading-relaxed text-gray-600 text-justify">
-                    <strong>Pengarusutamaan Gender & Literasi Keuangan:</strong><br/>
-                    Mengingat dominasi penerima manfaat adalah perempuan (49,23%) dan lebih dari separuh tidak memiliki tabungan awal, 
-                    modul pembinaan wajib menyertakan: 1) Manajemen keuangan rumah tangga, dan 2) Manajemen peran ganda (domestik & usaha) untuk menjamin keberlanjutan.
+                    Dominasi penerima manfaat perempuan (49,23%) menuntut modul pembinaan menyertakan <b>manajemen peran ganda</b> (domestik & usaha) untuk menjamin keberlanjutan.
                 </p>
             </div>
         </div>
 
-        <!-- CONTENT: EKONOMI -->
-        <div id="tab-ekonomi" class="tab-content hidden fade-in space-y-8">
+        <div id="tab-ekonomi" class="section-content scroll-mt-32 space-y-8">
             <div class="mb-8 border-b border-grey pb-4">
-                <h2 class="text-2xl font-bold flex items-center mb-2 text-darkGrey">
+                <h2 class="text-xl md:text-2xl font-bold flex items-center mb-2 text-darkGrey">
                     <div class="p-2 rounded-lg mr-3 text-white bg-primaryGreen">
-                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        <i data-lucide="trending-up" class="w-5 h-5 md:w-6 md:h-6"></i>
                     </div>
-                    Analisis Dampak Ekonomi
+                    Dampak Ekonomi
                 </h2>
-                <p class="text-sm ml-14 text-grey">Mengukur perubahan materiil dan kecepatan pengentasan</p>
+                <p class="text-xs md:text-sm ml-12 md:ml-14 text-grey">Perubahan materiil dan kecepatan pengentasan</p>
             </div>
 
-            <!-- Row 1 -->
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Income Chart -->
                 <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 class="font-bold mb-6 text-center text-darkGrey">Perubahan Rata-rata Pendapatan</h3>
-                    <div class="flex items-end justify-center gap-8 h-48 pb-4">
+                    <h3 class="font-bold mb-6 text-center text-darkGrey">Rata-rata Pendapatan</h3>
+                    <div class="flex items-end justify-center gap-6 h-48 pb-4">
                         <div class="text-center w-1/3">
-                            <div class="text-sm font-bold text-gray-500 mb-2">Sebelum</div>
+                            <div class="text-xs font-bold text-gray-500 mb-2">Sebelum</div>
                             <div class="bg-gray-300 rounded-t-lg w-full mx-auto h-32 relative group">
-                                <span class="absolute bottom-2 left-0 w-full text-center text-xs font-mono text-white opacity-0 group-hover:opacity-100">Rp 2.7jt</span>
                             </div>
+                            <div class="text-xs font-mono text-gray-500 mt-2">Rp 2.7jt</div>
                         </div>
                         <div class="text-center w-1/3">
-                            <div class="text-sm font-bold mb-2 text-primaryGreen">Sesudah</div>
+                            <div class="text-xs font-bold mb-2 text-primaryGreen">Sesudah</div>
                             <div class="bg-primaryGreen rounded-t-lg w-full mx-auto h-48 relative shadow-lg flex items-center justify-center group">
-                                <span class="text-white font-bold text-xl">+35,9%</span>
+                                <span class="text-white font-bold text-lg">+36%</span>
                             </div>
+                            <div class="text-xs font-mono text-darkGrey font-bold mt-2">Rp 4.2jt</div>
                         </div>
-                    </div>
-                    <div class="text-center text-sm text-gray-600 mt-2">
-                        Rp 2.703.385 <i data-lucide="arrow-right" class="inline w-3 h-3 mx-2"></i> <b>Rp 4.218.882</b>
                     </div>
                 </div>
 
-                <!-- Time Exit Chart -->
                 <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
                     <h3 class="font-bold mb-4 flex items-center text-darkGrey">
                         <i data-lucide="clock" class="w-4 h-4 mr-2 text-primaryGreen"></i>
-                        Akselerasi Pengentasan (Time to Exit)
+                        Kecepatan Pengentasan
                     </h3>
-                    <p class="text-sm text-gray-500 mb-6 text-justify">
-                        Estimasi waktu yang dibutuhkan mustahik untuk keluar dari kemiskinan berdasarkan laju pertumbuhan pendapatan saat ini.
-                    </p>
                     
-                    <!-- Chart Logic -->
-                    <div class="space-y-6">
-                        <div class="relative pt-6">
-                            <div class="flex justify-between text-sm font-bold mb-2 text-darkGrey">
-                                <span>Standar Miskin Ekstrem</span>
+                    <div class="space-y-6 mt-8">
+                        <div class="relative">
+                            <div class="flex justify-between text-xs font-bold mb-2 text-darkGrey">
+                                <span>Keluar Miskin Ekstrem</span>
                             </div>
                             <div class="h-4 bg-gray-100 rounded-full relative overflow-hidden">
                                 <div class="absolute top-0 left-0 h-full bg-red-400 opacity-30 w-full"></div>
-                                <span class="absolute right-2 top-0 text-[10px] text-red-500 font-bold leading-4">Tanpa Zakat: 24,5 Tahun</span>
-                                <div class="absolute top-0 left-0 h-full w-[5%] shadow-lg bg-primaryGreen"></div>
-                                <span class="absolute left-[5%] top-0 ml-2 text-[10px] font-bold leading-4 text-primaryGreen">IZI: 1,18 Tahun</span>
+                                <span class="absolute right-2 top-0 text-[9px] text-red-500 font-bold leading-4">Tanpa Zakat: 24 Tahun</span>
+                                <div class="absolute top-0 left-0 h-full w-[10%] shadow-lg bg-primaryGreen"></div>
+                                <span class="absolute left-[10%] top-0 ml-2 text-[9px] font-bold leading-4 text-primaryGreen">IZI: 1,2 Tahun</span>
                             </div>
                         </div>
                         <div class="relative pt-2">
-                            <div class="flex justify-between text-sm font-bold mb-2 text-darkGrey">
-                                <span>Standar Garis Kemiskinan BPS</span>
+                            <div class="flex justify-between text-xs font-bold mb-2 text-darkGrey">
+                                <span>Keluar Garis Kemiskinan</span>
                             </div>
                             <div class="h-4 bg-gray-100 rounded-full relative overflow-hidden">
                                 <div class="absolute top-0 left-0 h-full bg-red-400 opacity-30 w-full"></div>
-                                <span class="absolute right-2 top-0 text-[10px] text-red-500 font-bold leading-4">Tanpa Zakat: 29,5 Tahun</span>
-                                <div class="absolute top-0 left-0 h-full w-[13%] bg-primaryGreen"></div>
-                                <span class="absolute left-[13%] top-0 ml-2 text-[10px] font-bold leading-4 text-primaryGreen">IZI: 3,8 Tahun</span>
+                                <span class="absolute right-2 top-0 text-[9px] text-red-500 font-bold leading-4">Tanpa Zakat: 29 Tahun</span>
+                                <div class="absolute top-0 left-0 h-full w-[20%] bg-primaryGreen"></div>
+                                <span class="absolute left-[20%] top-0 ml-2 text-[9px] font-bold leading-4 text-primaryGreen">IZI: 3,8 Tahun</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Row 2 -->
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="md:col-span-2 bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <h3 class="font-bold mb-6 text-darkGrey">Jaring Pengentasan Kemiskinan</h3>
+                    <h3 class="font-bold mb-6 text-darkGrey">Jaring Pengentasan</h3>
                     <div class="grid md:grid-cols-2 gap-6 items-center">
-                        <div class="relative h-64 w-full flex justify-center items-center">
-                             <!-- Conic Gradient Pie Chart CSS -->
-                            <div class="w-48 h-48 rounded-full border-4 border-white shadow-xl"
+                        <div class="relative h-48 w-full flex justify-center items-center">
+                             <div class="w-40 h-40 rounded-full border-4 border-white shadow-xl"
                                  style="background: conic-gradient(
                                     #E5E7EB 0% 32%,
                                     #A3D95B 32% 48%,
@@ -384,18 +404,18 @@
                                     #446616 78% 89%,
                                     #4D4D4D 89% 100%
                                  );"></div>
-                            <div class="absolute bg-white rounded-full w-24 h-24 flex items-center justify-center flex-col shadow-sm">
-                                <span class="text-3xl font-bold text-primaryGreen">68%</span>
-                                <span class="text-[10px] text-center text-gray-500 leading-tight">Total<br/>Terentaskan</span>
+                            <div class="absolute bg-white rounded-full w-20 h-20 flex items-center justify-center flex-col shadow-sm">
+                                <span class="text-2xl font-bold text-primaryGreen">68%</span>
+                                <span class="text-[9px] text-center text-gray-500 leading-tight">Total<br/>Entas</span>
                             </div>
                         </div>
-                        <div class="space-y-2 text-sm">
-                            <div class="flex items-center"><div class="w-3 h-3 rounded-full mr-2 bg-gray-200"></div><span class="flex-1 text-gray-600">Belum Terentaskan</span><span class="font-bold text-darkGrey">32%</span></div>
-                            <div class="flex items-center"><div class="w-3 h-3 rounded-full mr-2 bg-[#A3D95B]"></div><span class="flex-1 text-gray-600">Keluar Miskin Ekstrem</span><span class="font-bold text-darkGrey">16%</span></div>
-                            <div class="flex items-center"><div class="w-3 h-3 rounded-full mr-2 bg-primaryGreen"></div><span class="flex-1 text-gray-600">Keluar Garis Kemiskinan</span><span class="font-bold text-darkGrey">20%</span></div>
-                            <div class="flex items-center"><div class="w-3 h-3 rounded-full mr-2 bg-[#669624]"></div><span class="flex-1 text-gray-600">Berpenghasilan Layak</span><span class="font-bold text-darkGrey">10%</span></div>
-                            <div class="flex items-center"><div class="w-3 h-3 rounded-full mr-2 bg-[#446616]"></div><span class="flex-1 text-gray-600">Had Kifayah</span><span class="font-bold text-darkGrey">11%</span></div>
-                            <div class="flex items-center"><div class="w-3 h-3 rounded-full mr-2 bg-darkGrey"></div><span class="flex-1 text-gray-600">Menjadi Muzakki</span><span class="font-bold text-darkGrey">11%</span></div>
+                        <div class="space-y-2 text-xs">
+                            <div class="flex items-center"><div class="w-2.5 h-2.5 rounded-full mr-2 bg-gray-200"></div><span class="flex-1 text-gray-600">Belum Terentaskan</span><span class="font-bold text-darkGrey">32%</span></div>
+                            <div class="flex items-center"><div class="w-2.5 h-2.5 rounded-full mr-2 bg-[#A3D95B]"></div><span class="flex-1 text-gray-600">Lolos Miskin Ekstrem</span><span class="font-bold text-darkGrey">16%</span></div>
+                            <div class="flex items-center"><div class="w-2.5 h-2.5 rounded-full mr-2 bg-primaryGreen"></div><span class="flex-1 text-gray-600">Lolos Garis Kemiskinan</span><span class="font-bold text-darkGrey">20%</span></div>
+                            <div class="flex items-center"><div class="w-2.5 h-2.5 rounded-full mr-2 bg-[#669624]"></div><span class="flex-1 text-gray-600">Penghasilan Layak</span><span class="font-bold text-darkGrey">10%</span></div>
+                            <div class="flex items-center"><div class="w-2.5 h-2.5 rounded-full mr-2 bg-[#446616]"></div><span class="flex-1 text-gray-600">Had Kifayah</span><span class="font-bold text-darkGrey">11%</span></div>
+                            <div class="flex items-center"><div class="w-2.5 h-2.5 rounded-full mr-2 bg-darkGrey"></div><span class="flex-1 text-gray-600">Menjadi Muzakki</span><span class="font-bold text-darkGrey">11%</span></div>
                         </div>
                     </div>
                 </div>
@@ -405,47 +425,44 @@
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between items-center mb-1">
-                                <span class="text-sm text-gray-600">Headcount Index (GK)</span>
-                                <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">-28%</span>
+                                <span class="text-sm text-gray-600">Headcount Index</span>
+                                <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">-28%</span>
                             </div>
-                            <div class="text-xs text-gray-400 mb-1">Penurunan jumlah orang miskin</div>
+                            <div class="text-[10px] text-gray-400 mb-1">Penurunan jumlah orang miskin</div>
                             <div class="w-full bg-gray-200 h-1.5 rounded-full"><div class="w-[44%] h-1.5 bg-gray-400 rounded-full"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between items-center mb-1">
-                                <span class="text-sm text-gray-600">Poverty Gap (P1)</span>
-                                <span class="text-xs font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">Turun</span>
+                                <span class="text-sm text-gray-600">Poverty Gap</span>
+                                <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded">Turun</span>
                             </div>
-                            <div class="text-xs text-gray-400 mb-1">Jarak pendapatan ke garis kemiskinan</div>
-                            <div class="text-sm font-mono text-gray-700">Rp 1,33jt &rarr; Rp 1,10jt</div>
+                            <div class="text-[10px] text-gray-400 mb-1">Kesenjangan pendapatan</div>
+                            <div class="text-xs font-mono text-gray-700">Rp 1,3jt &rarr; Rp 1,1jt</div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="mt-6 p-5 rounded-r-lg border-l-4 bg-white shadow-sm border-darkGrey">
-                <h4 class="flex items-center font-bold mb-2 text-darkGrey">
+                <h4 class="flex items-center font-bold mb-2 text-darkGrey text-sm">
                     <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
-                    Rekomendasi Kebijakan
+                    Insight & Kebijakan
                 </h4>
                 <p class="text-sm leading-relaxed text-gray-600 text-justify">
-                    <strong>Narasi Kecepatan & Kualitas:</strong> Data menunjukkan Zakat memangkas waktu pengentasan hingga 25 tahun lebih cepat. 
-                    Ini adalah argumen terkuat untuk muzakki korporat. Fokus program selanjutnya harus pada kelompok 32% yang "Belum Terentaskan" 
-                    agar bisa naik ke level "Lepas Miskin Ekstrem".
+                    Zakat memangkas waktu pengentasan hingga 25 tahun lebih cepat. Fokus program selanjutnya harus pada kelompok 32% yang "Belum Terentaskan".
                 </p>
             </div>
         </div>
 
-        <!-- CONTENT: SPIRITUAL -->
-        <div id="tab-spiritual" class="tab-content hidden fade-in space-y-6">
+        <div id="tab-spiritual" class="section-content scroll-mt-32 space-y-6">
             <div class="mb-8 border-b border-grey pb-4">
-                <h2 class="text-2xl font-bold flex items-center mb-2 text-darkGrey">
+                <h2 class="text-xl md:text-2xl font-bold flex items-center mb-2 text-darkGrey">
                     <div class="p-2 rounded-lg mr-3 text-white bg-primaryGreen">
-                        <i data-lucide="heart" class="w-6 h-6"></i>
+                        <i data-lucide="heart" class="w-5 h-5 md:w-6 md:h-6"></i>
                     </div>
-                    Kesejahteraan CIBEST & Spiritual
+                    Spiritual & CIBEST
                 </h2>
-                <p class="text-sm ml-14 text-grey">Analisis kesejahteraan material dan non-material (holistik)</p>
+                <p class="text-xs md:text-sm ml-12 md:ml-14 text-grey">Kesejahteraan holistik</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
@@ -453,99 +470,84 @@
                     <div class="absolute top-0 right-0 p-4 opacity-10">
                         <i data-lucide="target" class="w-24 h-24 text-primaryGreen"></i>
                     </div>
-                    <h3 class="font-bold mb-4 z-10 relative text-darkGrey">Pergeseran Kuadran CIBEST</h3>
-                    <p class="text-sm text-gray-500 mb-6">Menggunakan standar Garis Kemiskinan (GK)</p>
+                    <h3 class="font-bold mb-4 z-10 relative text-darkGrey">Kuadran CIBEST</h3>
                    
                     <div class="space-y-4 relative z-10">
                         <div class="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-100">
-                            <span class="font-semibold text-green-800">Kuadran I (Sejahtera)</span>
+                            <span class="font-semibold text-sm text-green-800">Kuadran I (Sejahtera)</span>
                             <div class="flex items-center">
-                                <span class="text-gray-400 text-sm line-through mr-2">38%</span>
-                                <i data-lucide="arrow-right" class="mr-2 text-green-600 w-4 h-4"></i>
-                                <span class="font-bold text-xl text-green-700">66%</span>
+                                <span class="text-gray-400 text-xs line-through mr-2">38%</span>
+                                <i data-lucide="arrow-right" class="mr-2 text-green-600 w-3 h-3"></i>
+                                <span class="font-bold text-lg text-green-700">66%</span>
                             </div>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 opacity-70">
-                            <span class="text-gray-600">Kuadran II (Miskin Material)</span>
-                            <span class="font-medium">Turun ke 33%</span>
+                            <span class="text-gray-600 text-sm">Kuadran II (Miskin Materi)</span>
+                            <span class="font-medium text-sm">Turun ke 33%</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 opacity-70">
-                            <span class="text-gray-600">Kuadran III (Miskin Spiritual)</span>
-                            <span class="font-medium">0% (Nihil)</span>
+                            <span class="text-gray-600 text-sm">Kuadran III (Miskin Spirit)</span>
+                            <span class="font-medium text-sm">0% (Nihil)</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
                     <h3 class="font-bold mb-4 text-darkGrey">Skor Spiritual</h3>
-                    <p class="text-sm text-gray-500 mb-4">Rata-rata skor skala Likert (1-5)</p>
+                    <p class="text-xs text-gray-500 mb-4">Rata-rata skor skala Likert (1-5)</p>
                    
                     <div class="space-y-3">
                         <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Zakat Infak Sedekah</span>
-                                <span class="font-bold text-primaryGreen">4.65 (+0.22)</span>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-darkGrey">Kesadaran ZIS</span>
+                                <span class="font-bold text-primaryGreen">4.65 (+0.2)</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-primaryGreen" style="width: 93%"></div>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Keharmonisan Keluarga</span>
-                                <span class="font-bold text-grey">4.43 (+0.22)</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-grey" style="width: 88%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="h-2 rounded-full bg-primaryGreen" style="width: 93%"></div>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Ibadah Puasa</span>
-                                <span class="font-bold text-grey">4.25 (+0.20)</span>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-darkGrey">Harmoni Keluarga</span>
+                                <span class="font-bold text-grey">4.43</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-grey" style="width: 85%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="h-2 rounded-full bg-grey" style="width: 88%"></div>
                             </div>
                         </div>
                         <div class="mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="font-semibold text-darkGrey">Shalat Wajib</span>
-                                <span class="font-bold text-grey">4.24 (+0.28)</span>
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="font-semibold text-darkGrey">Ibadah Wajib</span>
+                                <span class="font-bold text-grey">4.24</span>
                             </div>
-                            <div class="w-full bg-gray-200 rounded-full h-3">
-                                <div class="h-3 rounded-full bg-grey" style="width: 84.8%"></div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="h-2 rounded-full bg-grey" style="width: 84.8%"></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="mt-4 text-xs text-gray-400 italic text-right">
-                        *Kenaikan tertinggi pada kesadaran berzakat/infak
                     </div>
                 </div>
             </div>
 
             <div class="mt-6 p-5 rounded-r-lg border-l-4 bg-white shadow-sm border-darkGrey">
-                <h4 class="flex items-center font-bold mb-2 text-darkGrey">
+                <h4 class="flex items-center font-bold mb-2 text-darkGrey text-sm">
                     <i data-lucide="file-text" class="w-4 h-4 mr-2"></i>
-                    Rekomendasi Kebijakan
+                    Insight & Kebijakan
                 </h4>
                 <p class="text-sm leading-relaxed text-gray-600 text-justify">
-                    <strong>Dampak Pembinaan Rutin:</strong> Tingginya skor spiritual (terutama ZIS) berkorelasi positif dengan data bahwa 82% mustahik mendapatkan pendampingan rutin. 
-                    Ini memvalidasi model "Pendampingan Terintegrasi" IZI. Mustahik tidak hanya dibantu modal, tapi dibina mentalitasnya menjadi muzakki (tangan di atas).
+                    Tingginya skor spiritual memvalidasi model "Pendampingan Terintegrasi" IZI. Mustahik tidak hanya dibantu modal, tapi dibina mentalitasnya.
                 </p>
             </div>
         </div>
 
-        <!-- CONTENT: PROGRAM -->
-        <div id="tab-program" class="tab-content hidden fade-in space-y-6">
+        <div id="tab-program" class="section-content scroll-mt-32 space-y-6">
             <div class="mb-8 border-b border-grey pb-4">
-                <h2 class="text-2xl font-bold flex items-center mb-2 text-darkGrey">
+                <h2 class="text-xl md:text-2xl font-bold flex items-center mb-2 text-darkGrey">
                     <div class="p-2 rounded-lg mr-3 text-white bg-primaryGreen">
-                        <i data-lucide="target" class="w-6 h-6"></i>
+                        <i data-lucide="target" class="w-5 h-5 md:w-6 md:h-6"></i>
                     </div>
                     Efektivitas Program
                 </h2>
-                <p class="text-sm ml-14 text-grey">Perbandingan tingkat keberhasilan pengentasan kemiskinan per program</p>
+                <p class="text-xs md:text-sm ml-12 md:ml-14 text-grey">Tingkat keberhasilan per program</p>
             </div>
 
             <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
@@ -668,54 +670,85 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white border-t border-gray-200 mt-12 py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p class="font-bold text-lg mb-2 text-darkGrey">INISIATIF ZAKAT INDONESIA</p>
-            <p class="text-sm text-gray-500">
-                Dokumen Laporan Riset Internal 2025 &bull; Divisi SRD (Strategic Research Development) <br/>
-                <i>Data diolah menggunakan Standar Pusat Kajian Strategis BAZNAS (Puskas) & CIBEST IPB</i>
+            <p class="text-xs md:text-sm text-gray-500">
+                Laporan Riset Internal 2025 &bull; Divisi SRD<br/>
+                <i>Based on Puskas BAZNAS & CIBEST Standard</i>
             </p>
         </div>
     </footer>
 
-    <!-- Tab Logic Script -->
     <script>
         // Initialize Icons
         lucide.createIcons();
 
-        function switchTab(tabId) {
-            // Hide all tab contents
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => {
-                content.classList.add('hidden');
-            });
-
-            // Remove active state from all buttons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                const icon = btn.querySelector('svg');
-                if(icon) icon.style.color = '#6B7280'; // gray-500
-            });
-
-            // Show selected content
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
-
-            // Add active state to selected button
-            const activeBtn = document.getElementById('btn-' + tabId);
-            if(activeBtn) {
-                activeBtn.classList.add('active');
-                const activeIcon = activeBtn.querySelector('svg');
-                if(activeIcon) activeIcon.style.color = '#16a34a'; // green-600
+        // SCROLL HANDLING
+        function scrollToSection(id) {
+            const element = document.getElementById('tab-' + id);
+            if(element) {
+                element.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
-
-            // Re-render icons if needed (sometimes dynamic content needs this, but here it's static)
-            // lucide.createIcons(); 
         }
 
-        // Initialize default tab
-        // switchTab('ringkasan'); // Already set in HTML structure
+        // SCROLL SPY INTERSECTION OBSERVER
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const sections = document.querySelectorAll('.section-content');
+            const navButtons = document.querySelectorAll('.tab-btn');
+            const mobileButtons = document.querySelectorAll('.mobile-btn');
+
+            // Helper to update Active State
+            const setActive = (id) => {
+                // Desktop
+                navButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    const icon = btn.querySelector('svg');
+                    if(icon) icon.style.color = '#6B7280'; 
+                });
+                const activeBtn = document.getElementById('btn-' + id);
+                if(activeBtn) {
+                    activeBtn.classList.add('active');
+                    const activeIcon = activeBtn.querySelector('svg');
+                    if(activeIcon) activeIcon.style.color = '#16a34a'; 
+                }
+
+                // Mobile
+                mobileButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-primaryGreen', 'text-white', 'border-primaryGreen');
+                    btn.classList.add('bg-white', 'text-gray-600');
+                });
+                const activeMobBtn = document.getElementById('mob-' + id);
+                if(activeMobBtn) {
+                    activeMobBtn.classList.remove('bg-white', 'text-gray-600');
+                    activeMobBtn.classList.add('active', 'bg-primaryGreen', 'text-white', 'border-primaryGreen');
+                    activeMobBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            };
+
+            // Observer Setup
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', 
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id.replace('tab-', '');
+                        setActive(id);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
     </script>
 </body>
 </html>
