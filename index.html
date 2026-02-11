@@ -87,6 +87,18 @@
             background: linear-gradient(135deg, #8EC63F 0%, #4d7c0f 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        
+        /* Custom Tooltip arrow */
+        .arrow-bottom:after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #8EC63F transparent transparent transparent;
+        }
     </style>
 </head>
 <body class="selection:bg-green-100 min-h-screen flex flex-col">
@@ -130,7 +142,7 @@
                 <div class="relative z-10">
                     <div class="inline-block px-5 py-2 rounded-full text-[10px] md:text-xs font-bold tracking-wide uppercase mb-6 bg-white border border-green-100 text-primaryGreen shadow-sm">Laporan Kaji Dampak Zakat (KDZ)</div>
                     <h2 class="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-darkGrey leading-tight">Dampak Zakat Terhadap <br /><span class="text-gradient-green">Kemandirian Ekonomi</span></h2>
-                    <p class="max-w-3xl mx-auto text-base md:text-xl leading-relaxed text-gray-500 font-light">Studi terhadap 195 mustahik penerima program IZI menunjukkan bahwa zakat produktif secara signifikan <b class="text-darkGrey font-semibold">meningkatkan pendapatan</b> dan <b class="text-darkGrey font-semibold">mempercepat pengentasan kemiskinan</b>.</p>
+                    <p class="max-w-3xl mx-auto text-base md:text-xl leading-relaxed text-gray-500 font-light">Studi terhadap 195 mustahik penerima program IZI menunjukkan bahwa zakat produktif secara signifikan <b class="text-darkGrey font-semibold">meningkatkan kesejahteraan</b> dan <b class="text-darkGrey font-semibold">mempercepat pengentasan kemiskinan</b>.</p>
                 </div>
             </div>
 
@@ -149,219 +161,375 @@
                 </div>
                 <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 card-hover group">
                     <div class="flex justify-between items-start">
-                        <div><p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-2 text-grey">Pengentasan</p><h3 class="text-3xl md:text-4xl font-extrabold mb-1 text-gradient-green group-hover:scale-105 transition-transform origin-left">68%</h3><p class="text-xs md:text-sm font-medium text-darkGrey">Keluar Zona Miskin</p></div>
+                        <div><p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-2 text-grey">Pengentasan</p><h3 class="text-3xl md:text-4xl font-extrabold mb-1 text-gradient-green group-hover:scale-105 transition-transform origin-left">67%</h3><p class="text-xs md:text-sm font-medium text-darkGrey">Keluar Zona Miskin</p></div>
                         <div class="hidden md:flex p-3 rounded-xl bg-green-50 text-primaryGreen group-hover:bg-primaryGreen group-hover:text-white transition-colors"><i data-lucide="shield" class="w-5 h-5"></i></div>
                     </div>
                 </div>
                 <div class="bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-gray-100 card-hover group">
                     <div class="flex justify-between items-start">
-                        <div><p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-2 text-grey">Transformasi</p><h3 class="text-3xl md:text-4xl font-extrabold mb-1 text-gradient-green group-hover:scale-105 transition-transform origin-left">11%</h3><p class="text-xs md:text-sm font-medium text-darkGrey">Menjadi Muzakki</p></div>
+                        <div><p class="text-[10px] md:text-xs font-bold uppercase tracking-wider mb-2 text-grey">Transformasi</p><h3 class="text-3xl md:text-4xl font-extrabold mb-1 text-gradient-green group-hover:scale-105 transition-transform origin-left">10%</h3><p class="text-xs md:text-sm font-medium text-darkGrey">Menjadi Muzakki</p></div>
                         <div class="hidden md:flex p-3 rounded-xl bg-green-50 text-primaryGreen group-hover:bg-primaryGreen group-hover:text-white transition-colors"><i data-lucide="target" class="w-5 h-5"></i></div>
                     </div>
                 </div>
             </div>
 
             <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-10 border border-white shadow-lg flex flex-col md:flex-row gap-8 items-start relative overflow-hidden">
-                <div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primaryGreen to-transparent"></div>
-                <div class="flex-1 w-full">
-                    <h3 class="text-2xl font-bold mb-6 text-darkGrey flex items-center"><span class="bg-green-100 p-1.5 rounded-lg mr-3"><i data-lucide="search" class="w-5 h-5 text-primaryGreen"></i></span> Metodologi Penelitian</h3>
-                    <ul class="space-y-4 text-sm text-gray-600">
-                        <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors"><div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5"><i data-lucide="check" class="w-3 h-3 text-primaryGreen"></i></div><span class="leading-relaxed"><span class="font-bold text-darkGrey">Pendekatan:</span> <br class="md:hidden"> Kuantitatif (Survei Before-After)</span></li>
-                        <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors"><div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5"><i data-lucide="map-pin" class="w-3 h-3 text-primaryGreen"></i></div><span class="leading-relaxed"><span class="font-bold text-darkGrey">Lokasi:</span> <br class="md:hidden"> 17 Wilayah (DKJ, Jabar, Sumbar, Jateng, dll)</span></li>
-                        <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors"><div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5"><i data-lucide="pie-chart" class="w-3 h-3 text-primaryGreen"></i></div><span class="leading-relaxed"><span class="font-bold text-darkGrey">Analisis:</span> <br class="md:hidden"> CIBEST Model, Indikator Kemiskinan (FGT), Time to Exit</span></li>
-                        <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors"><div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5"><i data-lucide="users" class="w-3 h-3 text-primaryGreen"></i></div><span class="leading-relaxed"><span class="font-bold text-darkGrey">Sampling:</span> <br class="md:hidden"> Purposive (Penerima manfaat &gt;6 bulan)</span></li>
+    <div class="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-primaryGreen to-transparent"></div>
+    <div class="flex-1 w-full">
+        <h3 class="text-2xl font-bold mb-6 text-darkGrey flex items-center">
+            <span class="bg-green-100 p-1.5 rounded-lg mr-3">
+                <i data-lucide="search" class="w-5 h-5 text-primaryGreen"></i>
+            </span> 
+            Metodologi Penelitian
+        </h3>
+        <ul class="space-y-4 text-sm text-gray-600">
+            <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors">
+                <div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5 flex-shrink-0">
+                    <i data-lucide="map-pin" class="w-3 h-3 text-primaryGreen"></i>
+                </div>
+                <span class="leading-relaxed">
+                    <span class="font-bold text-darkGrey">Lokasi:</span> <br class="md:hidden"> 
+                    14 Wilayah (DKJ, Jabar, Sumbar, Jateng, dll)
+                </span>
+            </li>
+            <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors">
+                <div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5 flex-shrink-0">
+                    <i data-lucide="pie-chart" class="w-3 h-3 text-primaryGreen"></i>
+                </div>
+                <span class="leading-relaxed">
+                    <span class="font-bold text-darkGrey">Analisis:</span>
+                    <ul class="list-disc ml-4 mt-1 space-y-1 text-xs text-gray-500">
+                        <li><b>Indikator Kemiskinan Umum:</b> Head Count Index, Income Gap Ratio, Poverty Gap Index, Severity Index, & FGT.</li>
+                        <li><b>CIBEST Model:</b> Indeks Kesejahteraan </li>
+                        <li><b>Time Taken to Exit Poverty:</b> Estimasi waktu pengentasan.</li>
                     </ul>
+                </span>
+            </li>
+            <li class="flex items-start gap-4 p-3 hover:bg-green-50/50 rounded-lg transition-colors">
+                <div class="bg-white p-1 rounded-full shadow-sm border border-green-100 mt-0.5 flex-shrink-0">
+                    <i data-lucide="users" class="w-3 h-3 text-primaryGreen"></i>
                 </div>
-                <div class="w-full md:w-1/3 bg-gradient-to-br from-gray-50 to-white border border-gray-100 p-8 rounded-2xl text-center mt-2 md:mt-0 shadow-inner">
-                    <i data-lucide="book-open" class="w-12 h-12 mx-auto mb-4 text-primaryGreen/30"></i>
-                    <p class="text-sm italic text-gray-500 leading-relaxed font-serif">"Keberhasilan zakat diukur dari perubahan nyata kualitas hidup mustahik."</p>
-                    <div class="w-12 h-1 bg-primaryGreen mx-auto mt-4 rounded-full opacity-30"></div>
-                </div>
-            </div>
+                <span class="leading-relaxed">
+                    <span class="font-bold text-darkGrey">Sampling (Purposive):</span> <br> 
+                    Mustahik penerima bantuan produktif aktif (min. 6 bulan) dan yang telah terminasi program (maks. 6 bulan).
+                </span>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="w-full md:w-1/3 bg-gradient-to-br from-gray-50 to-white border border-gray-100 p-8 rounded-2xl text-center mt-2 md:mt-0 shadow-inner">
+        <i data-lucide="book-open" class="w-12 h-12 mx-auto mb-4 text-primaryGreen/30"></i>
+        <p class="text-sm italic text-gray-500 leading-relaxed font-serif">
+            "Keberhasilan zakat diukur dari perubahan nyata kualitas hidup mustahik."
+        </p>
+        <div class="w-12 h-1 bg-primaryGreen mx-auto mt-4 rounded-full opacity-30"></div>
+    </div>
+</div>
         </div>
 
         <div id="tab-demografi" class="section-content scroll-mt-32 space-y-8">
-            <div class="mb-8 border-b border-gray-200 pb-4 flex items-center justify-between">
-                <div>
-                    <h2 class="text-xl md:text-3xl font-bold flex items-center mb-2 text-darkGrey">
-                        <div class="p-2.5 rounded-xl mr-4 text-white bg-gradient-to-br from-primaryGreen to-secondaryGreen shadow-lg shadow-green-200"><i data-lucide="users" class="w-5 h-5 md:w-6 md:h-6"></i></div>
-                        Profil Mustahik
-                    </h2>
-                    <p class="text-xs md:text-sm ml-[4.5rem] text-gray-500">Karakteristik penerima manfaat</p>
+    
+    <div class="mb-8 border-b border-gray-200 pb-4 flex items-center justify-between">
+        <div>
+            <h2 class="text-xl md:text-3xl font-bold flex items-center mb-2 text-darkGrey">
+                <div class="p-2.5 rounded-xl mr-4 text-white bg-gradient-to-br from-primaryGreen to-secondaryGreen shadow-lg shadow-green-200">
+                    <i data-lucide="users" class="w-5 h-5 md:w-6 md:h-6"></i>
                 </div>
-            </div>
-
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm flex flex-col justify-between h-full card-hover relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-[4rem] -mr-8 -mt-8 z-0"></div>
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-8">
-                        <div><h3 class="font-bold text-darkGrey text-xl tracking-tight">Posisi Responden</h3><p class="text-sm text-gray-500 mt-1">Status hubungan keluarga dari 195 mustahik.</p></div>
-                        <div class="p-2.5 bg-white border border-green-100 rounded-xl shadow-sm"><i data-lucide="user-check" class="w-5 h-5 text-primaryGreen"></i></div>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="group cursor-default">
-                            <div class="flex justify-between text-sm mb-2"><span class="font-bold text-darkGrey">Ibu (Istri/Kepala Keluarga)</span><span class="font-bold text-primaryGreen">49.2%</span></div>
-                            <div class="w-full bg-gray-100 rounded-full h-3 shadow-inner"><div class="h-3 rounded-full bg-gradient-to-r from-primaryGreen to-secondaryGreen relative shadow-md w-0 animate-[width-grow_1.5s_ease-out_forwards]" style="width: 49.23%"></div></div>
-                        </div>
-                        <div class="group cursor-default">
-                            <div class="flex justify-between text-sm mb-2"><span class="font-semibold text-gray-600">Ayah (Suami)</span><span class="font-bold text-gray-500">39.5%</span></div>
-                            <div class="w-full bg-gray-100 rounded-full h-3 shadow-inner"><div class="h-3 rounded-full bg-gray-400 relative w-0 animate-[width-grow_1.5s_ease-out_0.2s_forwards]" style="width: 39.49%"></div></div>
-                        </div>
-                        <div class="group cursor-default">
-                            <div class="flex justify-between text-sm mb-2"><span class="font-semibold text-gray-600">Anak & Kerabat Lainnya</span><span class="font-bold text-gray-500">11.3%</span></div>
-                            <div class="w-full bg-gray-100 rounded-full h-3 shadow-inner"><div class="h-3 rounded-full bg-gray-300 relative w-0 animate-[width-grow_1.5s_ease-out_0.4s_forwards]" style="width: 11.28%"></div></div>
-                            <p class="text-[10px] text-gray-400 mt-2 italic flex items-center"><i data-lucide="corner-down-right" class="w-3 h-3 mr-1"></i> *Termasuk menantu, cucu, orangtua, dll.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative z-10 mt-8 pt-5 border-t border-dashed border-gray-200">
-                    <div class="flex gap-4 p-4 bg-green-50/50 rounded-xl border border-green-100">
-                        <i data-lucide="lightbulb" class="w-5 h-5 text-primaryGreen mt-0.5 shrink-0 fill-green-100"></i>
-                        <div class="text-sm text-gray-600 leading-relaxed text-justify"><span class="font-bold text-darkGrey">Insight:</span> <br/>Penerima manfaat didominasi oleh <b class="text-primaryGreen">Ibu (Istri)</b>. Hal ini menunjukkan peran ganda perempuan sebagai pengelola rumah tangga sekaligus penopang ekonomi keluarga.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm card-hover">
-                <h3 class="font-bold mb-8 flex items-center text-darkGrey text-lg"><span class="bg-blue-50 p-2 rounded-lg mr-3 text-blue-500"><i data-lucide="briefcase" class="w-5 h-5"></i></span> Status & Aset Awal</h3>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 text-center hover:bg-white hover:shadow-md transition-all">
-                        <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Status Asnaf</div>
-                        <div class="font-extrabold text-3xl text-darkGrey">90,3%</div>
-                        <div class="inline-block mt-2 px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-[10px] font-bold uppercase">Miskin</div>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-red-50/50 border border-red-100 text-center hover:bg-white hover:shadow-md transition-all">
-                        <div class="text-xs font-bold text-red-300 uppercase tracking-wider mb-2">Tabungan Awal</div>
-                        <div class="font-extrabold text-3xl text-red-500">50,8%</div>
-                        <div class="inline-block mt-2 px-3 py-1 bg-red-100 text-red-600 rounded-full text-[10px] font-bold uppercase">Nihil</div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <p class="text-sm text-gray-500 mb-3 font-medium">Lama Bantuan:</p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-1.5 bg-green-100 border border-green-200 text-green-700 text-xs font-semibold rounded-full shadow-sm">Prioritas I: &gt; 6 Bulan</span>
-                        <span class="px-4 py-1.5 bg-white border border-gray-200 text-gray-600 text-xs font-semibold rounded-full shadow-sm">Prioritas II: Tahun Lalu</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 p-6 md:p-8 rounded-r-2xl border-l-8 border-darkGrey bg-white shadow-lg flex items-start gap-4">
-                <div class="hidden md:block bg-gray-100 p-3 rounded-full"><i data-lucide="file-text" class="w-6 h-6 text-darkGrey"></i></div>
-                <div>
-                    <h4 class="font-bold mb-2 text-darkGrey text-lg">Insight & Kebijakan</h4>
-                    <p class="text-base leading-relaxed text-gray-600 text-justify">Dominasi penerima manfaat perempuan (49,23%) menuntut modul pembinaan menyertakan <b>manajemen peran ganda</b> (domestik & usaha) untuk menjamin keberlanjutan.</p>
-                </div>
-            </div>
+                Profil Mustahik
+            </h2>
+            <p class="text-xs md:text-sm ml-[4.5rem] text-gray-500">Karakteristik penerima manfaat</p>
         </div>
-
-<div id="tab-ekonomi" class="section-content scroll-mt-32 space-y-10">
-    <div class="mb-8 border-b border-gray-200 pb-4">
-        <h2 class="text-xl md:text-3xl font-bold flex items-center mb-2 text-darkGrey">
-            <div class="p-2.5 rounded-xl mr-4 text-white bg-gradient-to-br from-primaryGreen to-secondaryGreen shadow-lg shadow-green-200">
-                <i data-lucide="trending-up" class="w-5 h-5 md:w-6 md:h-6"></i>
-            </div>
-            Dampak Ekonomi
-        </h2>
-        <p class="text-xs md:text-sm ml-[4.5rem] text-gray-500">Perubahan materiil dan kecepatan pengentasan</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm card-hover">
-            <h3 class="font-bold mb-2 text-center text-darkGrey text-lg">Rata-rata Pendapatan</h3>
-            <p class="text-xs text-center text-gray-400 mb-8 font-medium bg-gray-50 inline-block px-3 py-1 rounded-full mx-auto">Perbandingan Before & After</p>
-            
-            <div class="flex items-end justify-center gap-8 h-64 pb-2">
-                <div class="text-center w-1/3 flex flex-col justify-end group">
-                    <div class="text-xs font-bold text-gray-400 mb-3 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">Rp 2.7jt</div>
-                    <div class="bg-gray-200 rounded-t-2xl w-full mx-auto h-32 relative transition-all duration-500 group-hover:bg-gray-300 group-hover:shadow-lg"></div>
-                    <div class="text-xs font-bold text-gray-500 mt-4 px-3 py-1 bg-gray-100 rounded-lg">Sebelum</div>
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+        
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden h-full">
+            <div class="absolute top-0 right-0 p-6">
+                <div class="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-primaryGreen">
+                    <i data-lucide="user-check" class="w-6 h-6"></i>
                 </div>
-                <div class="text-center w-1/3 flex flex-col justify-end group">
-                        <div class="text-xs font-bold text-primaryGreen mb-3 opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">Rp 4.2jt</div>
-                    <div class="bg-gradient-to-t from-primaryGreen to-secondaryGreen rounded-t-2xl w-full mx-auto h-48 relative shadow-xl shadow-green-100 flex items-center justify-center transition-all duration-500 group-hover:scale-105">
-                        <span class="text-white font-bold text-xl drop-shadow-md">+36%</span>
+            </div>
+
+            <div class="mb-8 pr-16">
+                <h3 class="font-bold text-darkGrey text-xl tracking-tight mb-1">Posisi Responden</h3>
+                <p class="text-sm text-gray-500">Status hubungan keluarga dari 195 mustahik.</p>
+            </div>
+
+            <div class="space-y-6">
+                <div>
+                    <div class="flex justify-between text-sm mb-2 font-bold">
+                        <span class="text-darkGrey">Ibu (Istri/Kepala Keluarga)</span>
+                        <span class="text-primaryGreen">49.2%</span>
                     </div>
-                        <div class="text-xs font-bold text-white mt-4 px-3 py-1 bg-primaryGreen rounded-lg shadow-sm">Sesudah</div>
+                    <div class="w-full bg-gray-100 rounded-full h-3">
+                        <div class="h-3 rounded-full bg-primaryGreen shadow-sm shadow-green-200" style="width: 49.2%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm mb-2 font-bold text-gray-500">
+                        <span>Ayah (Suami)</span>
+                        <span>39.5%</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-3">
+                        <div class="h-3 rounded-full bg-gray-400" style="width: 39.5%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm mb-2 font-bold text-gray-500">
+                        <span>Anak & Kerabat Lainnya</span>
+                        <span>11.3%</span>
+                    </div>
+                    <div class="w-full bg-gray-100 rounded-full h-3 mb-2">
+                        <div class="h-3 rounded-full bg-gray-300" style="width: 11.3%"></div>
+                    </div>
+                    <div class="flex items-start gap-1 text-[10px] text-gray-400 italic mt-1 ml-1">
+                        <i data-lucide="corner-down-right" class="w-3 h-3 mt-0.5"></i>
+                        <span>*Termasuk menantu, cucu, orangtua, dll.</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm card-hover">
-            <h3 class="font-bold mb-2 flex items-center text-darkGrey text-lg">
-                <span class="bg-orange-50 p-2 rounded-lg mr-3 text-orange-500">
-                    <i data-lucide="clock" class="w-5 h-5"></i>
-                </span>
-                Akselerasi Pengentasan
-            </h3>
-            <p class="text-xs text-gray-500 mb-8 leading-relaxed">
-                Perbandingan estimasi waktu keluar dari kemiskinan dengan dan tanpa intervensi zakat. <br/><b>Dengan dukungan zakat produktif, proses tersebut dapat berlangsung jauh lebih cepat.</b>
-            </p>
-            
-            <div class="space-y-8">
-                <div class="relative">
-                    <div class="flex justify-between text-xs font-bold mb-10 text-darkGrey"> 
-                        <span>Keluar Miskin Ekstrem</span>
-                    </div>
-                    <div class="relative">
-                        <div class="absolute left-[10%] -top-9 -translate-x-1/2 flex flex-col items-center z-20">
-                                <span class="bg-primaryGreen text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">IZI: 1,2 Thn</span>
-                                <div class="w-2 h-2 bg-primaryGreen rotate-45 -mt-1"></div>
-                        </div>
-                        <div class="h-6 bg-gray-50 rounded-full relative overflow-hidden shadow-inner border border-gray-100">
-                            <div class="absolute top-0 left-0 h-full w-full bg-red-500/10"></div>
-                            <span class="absolute right-3 top-1 text-[10px] text-red-400 font-bold tracking-wide leading-4">Tanpa Zakat: 24 Tahun</span>
-                            <div class="absolute top-0 left-0 h-full w-[10%] shadow-lg bg-gradient-to-r from-primaryGreen to-secondaryGreen rounded-r-full"></div>
-                        </div>
+        <div class="bg-white p-6 md:p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden h-full flex flex-col">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <h3 class="font-bold text-darkGrey text-xl tracking-tight">Jumlah Anggota Keluarga</h3>
+                    <div class="text-xs text-gray-500 mt-2 space-y-1">
+                        <p>Status asnaf: <b class="text-darkGrey">90.3% Miskin</b>, 9.7% Fakir</p>
+                        <p>Tabungan awal: <b class="text-darkGrey">50.8% Nihil</b></p>
                     </div>
                 </div>
-                <div class="relative">
-                    <div class="flex justify-between text-xs font-bold mb-10 text-darkGrey">
-                        <span>Keluar Garis Kemiskinan</span>
+                <div class="p-2.5 bg-blue-50 border border-blue-100 rounded-xl shadow-sm text-[#1e5b7e]">
+                    <i data-lucide="users" class="w-5 h-5"></i>
+                </div>
+            </div>
+            
+            <div class="space-y-3 text-xs flex-grow">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 font-bold text-gray-600">4</span>
+                    <div class="flex-grow h-4 bg-gray-100 rounded overflow-hidden">
+                        <div class="h-full bg-[#1e5b7e] rounded" style="width: 30.16%"></div>
                     </div>
-                    <div class="relative">
-                        <div class="absolute left-[20%] -top-9 -translate-x-1/2 flex flex-col items-center z-20">
-                                <span class="bg-primaryGreen text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">IZI: 3,8 Thn</span>
-                                <div class="w-2 h-2 bg-primaryGreen rotate-45 -mt-1"></div>
-                        </div>
-                        <div class="h-6 bg-gray-50 rounded-full relative overflow-hidden shadow-inner border border-gray-100">
-                            <div class="absolute top-0 left-0 h-full w-full bg-red-500/10"></div>
-                            <span class="absolute right-3 top-1 text-[10px] text-red-400 font-bold tracking-wide leading-4">Tanpa Zakat: 29 Tahun</span>
-                            <div class="absolute top-0 left-0 h-full w-[20%] shadow-lg bg-gradient-to-r from-primaryGreen to-secondaryGreen rounded-r-full"></div>
-                        </div>
+                    <span class="w-10 text-right font-bold text-[#1e5b7e]">30.2%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 font-bold text-gray-600">5</span>
+                    <div class="flex-grow h-4 bg-gray-100 rounded overflow-hidden">
+                        <div class="h-full bg-[#1e5b7e] rounded" style="width: 25.13%"></div>
                     </div>
+                    <span class="w-10 text-right font-bold text-[#1e5b7e]">25.1%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 font-bold text-gray-600">3</span>
+                    <div class="flex-grow h-4 bg-gray-100 rounded overflow-hidden">
+                        <div class="h-full bg-[#1e5b7e] rounded" style="width: 19.05%"></div>
+                    </div>
+                    <span class="w-10 text-right font-bold text-[#1e5b7e]">19.1%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 font-bold text-gray-600">6</span>
+                    <div class="flex-grow h-4 bg-gray-100 rounded overflow-hidden">
+                        <div class="h-full bg-[#1e5b7e] rounded" style="width: 8.73%"></div>
+                    </div>
+                    <span class="w-10 text-right font-bold text-[#1e5b7e]">8.7%</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-4 font-bold text-gray-600">7</span>
+                    <div class="flex-grow h-4 bg-gray-100 rounded overflow-hidden">
+                        <div class="h-full bg-[#1e5b7e] rounded" style="width: 7.41%"></div>
+                    </div>
+                    <span class="w-10 text-right font-bold text-[#1e5b7e]">7.4%</span>
+                </div>
+                <div class="flex items-center gap-2 opacity-60">
+                    <span class="w-4 font-bold text-gray-600">2</span>
+                    <div class="flex-grow h-4 bg-gray-100 rounded overflow-hidden">
+                        <div class="h-full bg-[#1e5b7e] rounded" style="width: 6.61%"></div>
+                    </div>
+                    <span class="w-10 text-right font-bold text-[#1e5b7e]">6.6%</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 items-stretch">
+        <div id="tab-ekonomi" class="section-content scroll-mt-32 space-y-10">
+            <div class="mb-8 border-b border-gray-200 pb-4">
+                <h2 class="text-xl md:text-3xl font-bold flex items-center mb-2 text-darkGrey">
+                    <div class="p-2.5 rounded-xl mr-4 text-white bg-gradient-to-br from-primaryGreen to-secondaryGreen shadow-lg shadow-green-200">
+                        <i data-lucide="trending-up" class="w-5 h-5 md:w-6 md:h-6"></i>
+                    </div>
+                    Dampak Ekonomi
+                </h2>
+                <p class="text-xs md:text-sm ml-[4.5rem] text-gray-500">Perubahan materiil dan kecepatan pengentasan</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm card-hover relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-lime-50 opacity-50 z-0"></div>
+    
+    <div class="relative z-10">
+        <h3 class="font-bold mb-2 text-center text-slate-700 text-lg">Rata-rata Pendapatan</h3>
+        <p class="text-xs text-center text-slate-400 mb-10 font-medium bg-slate-100 inline-block px-4 py-1.5 rounded-full mx-auto">Perbandingan Before & After</p>
+        
+        <div class="flex items-end justify-center gap-8 h-64 pb-4">
+            
+            <div class="text-center w-1/3 flex flex-col justify-end group">
+                <div class="text-sm font-bold text-slate-500 mb-3">Rp 2.7jt</div>
+                
+                <div class="bg-gradient-to-b from-slate-300 to-slate-400 rounded-t-2xl w-full mx-auto h-32 relative transition-all duration-500 group-hover:shadow-lg border-t-2 border-slate-200 shadow-sm">
+                    <div class="absolute inset-0 bg-white/10 rounded-t-2xl"></div>
+                </div>
+                <div class="text-xs font-bold text-slate-600 mt-4 px-4 py-1.5 bg-slate-100 rounded-xl">Sebelum</div>
+            </div>
+            
+            <div class="text-center w-1/3 flex flex-col justify-end group">
+                    <div class="text-sm font-black text-green-600 mb-3">Rp 4.2jt</div>
+                    
+                    <div class="bg-gradient-to-t from-lime-400 via-green-500 to-green-600 rounded-t-2xl w-full mx-auto h-48 relative shadow-xl shadow-lime-200/70 flex items-center justify-center transition-all duration-500 group-hover:scale-105 border-t-2 border-lime-200">
+                    <div class="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent rounded-t-2xl"></div>
+                    <span class="text-white font-black text-2xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)] relative z-10">+36%</span>
+                </div>
+                    <div class="text-xs font-bold text-white mt-4 px-4 py-1.5 bg-gradient-to-r from-lime-500 to-green-600 rounded-xl shadow-md shadow-green-200">Sesudah</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm card-hover">
+    <h3 class="font-bold mb-2 flex items-center text-darkGrey text-lg">
+        <span class="bg-orange-50 p-2 rounded-lg mr-3 text-orange-500">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+        </span>
+        Akselerasi Pengentasan
+    </h3>
+    <p class="text-xs text-gray-500 mb-8 leading-relaxed">
+        Perbandingan estimasi waktu keluar dari kemiskinan dengan dan tanpa intervensi zakat. <br/>
+        <b>Dengan dukungan zakat produktif, proses tersebut dapat berlangsung jauh lebih cepat.</b>
+    </p>
+    
+    <div class="space-y-10"> <div class="relative">
+            <div class="flex justify-between text-xs font-bold mb-8 text-darkGrey"> 
+                <span>Keluar Miskin Ekstrem</span>
+            </div>
+            <div class="relative">
+                <div class="absolute left-[5%] -top-8 -translate-x-1/2 flex flex-col items-center z-20">
+                    <span class="bg-[#8EC63F] text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">
+                        IZI: 1,2 Thn
+                    </span>
+                    <div class="w-2 h-2 bg-[#8EC63F] rotate-45 -mt-1"></div>
+                </div>
+                <div class="h-4 bg-red-50 rounded-full relative overflow-hidden border border-red-100">
+                    <span class="absolute right-2 top-0.5 text-[9px] text-red-400 font-bold">Tanpa Zakat: 24 Tahun</span>
+                    <div class="absolute top-0 left-0 h-full w-[5%] bg-[#8EC63F] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="flex justify-between text-xs font-bold mb-8 text-darkGrey">
+                <span>Keluar Garis Kemiskinan</span>
+            </div>
+            <div class="relative">
+                <div class="absolute left-[13%] -top-8 -translate-x-1/2 flex flex-col items-center z-20">
+                    <span class="bg-[#8EC63F] text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">
+                        IZI: 3,8 Thn
+                    </span>
+                    <div class="w-2 h-2 bg-[#8EC63F] rotate-45 -mt-1"></div>
+                </div>
+                <div class="h-4 bg-red-50 rounded-full relative overflow-hidden border border-red-100">
+                    <span class="absolute right-2 top-0.5 text-[9px] text-red-400 font-bold">Tanpa Zakat: 29 Tahun</span>
+                    <div class="absolute top-0 left-0 h-full w-[13%] bg-[#8EC63F] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="flex justify-between text-xs font-bold mb-8 text-darkGrey">
+                <span>Keluar UMP</span>
+            </div>
+            <div class="relative">
+                <div class="absolute left-[13%] -top-8 -translate-x-1/2 flex flex-col items-center z-20">
+                    <span class="bg-[#8EC63F] text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">
+                        IZI: 3,9 Thn
+                    </span>
+                    <div class="w-2 h-2 bg-[#8EC63F] rotate-45 -mt-1"></div>
+                </div>
+                <div class="h-4 bg-red-50 rounded-full relative overflow-hidden border border-red-100">
+                    <span class="absolute right-2 top-0.5 text-[9px] text-red-400 font-bold">Tanpa Zakat: 29,6 Tahun</span>
+                    <div class="absolute top-0 left-0 h-full w-[13%] bg-[#8EC63F] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="flex justify-between text-xs font-bold mb-8 text-darkGrey">
+                <span>Keluar Had Kifayah</span>
+            </div>
+            <div class="relative">
+                <div class="absolute left-[22%] -top-8 -translate-x-1/2 flex flex-col items-center z-20">
+                    <span class="bg-[#8EC63F] text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">
+                        IZI: 8,4 Thn
+                    </span>
+                    <div class="w-2 h-2 bg-[#8EC63F] rotate-45 -mt-1"></div>
+                </div>
+                <div class="h-4 bg-red-50 rounded-full relative overflow-hidden border border-red-100">
+                    <span class="absolute right-2 top-0.5 text-[9px] text-red-400 font-bold">Tanpa Zakat: 36,8 Tahun</span>
+                    <div class="absolute top-0 left-0 h-full w-[22%] bg-[#8EC63F] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="flex justify-between text-xs font-bold mb-8 text-darkGrey">
+                <span>Mencapai Nishab Zakat</span>
+            </div>
+            <div class="relative">
+                <div class="absolute left-[34%] -top-8 -translate-x-1/2 flex flex-col items-center z-20">
+                    <span class="bg-[#8EC63F] text-white px-2 py-1 rounded-md text-[10px] font-bold shadow-md whitespace-nowrap">
+                        IZI: 15,2 Thn
+                    </span>
+                    <div class="w-2 h-2 bg-[#8EC63F] rotate-45 -mt-1"></div>
+                </div>
+                <div class="h-4 bg-red-50 rounded-full relative overflow-hidden border border-red-100">
+                    <span class="absolute right-2 top-0.5 text-[9px] text-red-400 font-bold">Tanpa Zakat: 44,8 Tahun</span>
+                    <div class="absolute top-0 left-0 h-full w-[34%] bg-[#8EC63F] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 items-stretch">
         
         <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col items-center">
             <h3 class="font-bold mb-1 text-darkGrey text-lg w-full text-center md:text-left">Status Ekonomi</h3>
             <p class="text-xs text-gray-500 mb-6 w-full text-center md:text-left leading-relaxed">
-                Dari 100% mustahik miskin di awal, kini <b class="text-primaryGreen">68% sudah mentas (berdaya)</b> pasca-intervensi.
+                Dari 100% mustahik miskin di awal, kini <b class="text-primaryGreen">67% sudah mentas (berdaya)</b> pasca-intervensi.
             </p>
             
             <div class="relative h-48 w-48 flex-shrink-0 mb-6">
                     <div class="w-48 h-48 rounded-full border-8 border-white shadow-xl"
                         style="background: conic-gradient(
-                        #F3F4F6 0% 32%,
-                        #bef264 32% 48%,
-                        #8EC63F 48% 68%,
-                        #65a30d 68% 78%,
-                        #3f6212 78% 89%,
-                        #4D4D4D 89% 100%
+                        #F3F4F6 0% 33%,
+                        #bef264 33% 49%,
+                        #8EC63F 49% 69%,
+                        #65a30d 69% 79%,
+                        #3f6212 79% 90%,
+                        #4D4D4D 90% 100%
                         );"></div>
                 <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center flex-col">
                     <div class="bg-white rounded-full w-28 h-28 flex items-center justify-center flex-col shadow-inner">
-                        <span class="text-3xl font-extrabold text-primaryGreen">68%</span>
+                        <span class="text-3xl font-extrabold text-primaryGreen">67%</span>
                         <span class="text-[10px] text-center text-gray-400 font-bold uppercase tracking-wide leading-tight">Total<br/>Entas</span>
                     </div>
                 </div>
             </div>
             
             <div class="w-full space-y-2 text-[11px] font-medium">
-                <div class="flex justify-between items-center"><span class="flex items-center text-gray-500"><div class="w-2 h-2 rounded-full mr-2 bg-gray-300"></div>Belum Entas</span><span class="font-bold text-darkGrey">32%</span></div>
+                <div class="flex justify-between items-center"><span class="flex items-center text-gray-500"><div class="w-2 h-2 rounded-full mr-2 bg-gray-300"></div>Belum Entas</span><span class="font-bold text-darkGrey">33%</span></div>
                 <div class="flex justify-between items-center"><span class="flex items-center text-gray-600"><div class="w-2 h-2 rounded-full mr-2 bg-[#bef264]"></div>Lolos Ekstrem</span><span class="font-bold text-darkGrey">16%</span></div>
                 <div class="flex justify-between items-center bg-green-50 p-1.5 rounded-lg"><span class="flex items-center text-gray-800"><div class="w-2 h-2 rounded-full mr-2 bg-primaryGreen"></div>Lolos Garis (GK)</span><span class="font-bold text-primaryGreen">20%</span></div>
                 <div class="flex justify-between items-center"><span class="flex items-center text-gray-600"><div class="w-2 h-2 rounded-full mr-2 bg-[#65a30d]"></div>Layak</span><span class="font-bold text-darkGrey">10%</span></div>
@@ -370,168 +538,178 @@
             </div>
         </div>
 
-        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col justify-center">
-            <h3 class="font-bold mb-2 text-darkGrey text-lg">Dampak Wilayah</h3>
-            <p class="text-xs text-gray-500 mb-8 leading-relaxed">
-                Berdasarkan hasil riset, program ini terbukti efektif memperbaiki statistik kemiskinan daerah, tidak sebatas individu.
-            </p>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col justify-start">
+            <h3 class="font-bold mb-2 text-darkGrey text-lg">Indikator Kemiskinan Umum</h3>
+            <p class="text-xs text-gray-400 mb-4">Pengukuran statistik dampak intervensi.</p>
             
-            <div class="space-y-8 flex-grow flex flex-col justify-center">
-                <div class="group p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-green-100 transition-colors">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">Headcount Index</span>
-                        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded shadow-sm">-28%</span>
+            <div class="space-y-3 flex-grow overflow-y-auto pr-1 custom-scrollbar">
+                <div class="p-3 rounded-xl bg-gray-50 border border-gray-100 group hover:border-green-200 transition-all">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-gray-700">Headcount Index (P0)</span>
+                        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded shadow-sm">-20.6%</span>
                     </div>
-                    <div class="text-[10px] text-gray-500 mb-3 leading-tight">Jumlah orang miskin di wilayah target berkurang drastis.</div>
-                    <div class="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden"><div class="w-[44%] h-1.5 bg-gray-400 rounded-full group-hover:bg-primaryGreen transition-colors duration-500"></div></div>
+                    <p class="text-[10px] text-gray-500 leading-tight">Penurunan proporsi mustahik miskin.</p>
                 </div>
-                
-                <div class="group p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-green-100 transition-colors">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-xs font-bold text-gray-700 uppercase tracking-wide">Poverty Gap</span>
-                        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-1 rounded shadow-sm">Turun</span>
+                 <div class="p-3 rounded-xl bg-gray-50 border border-gray-100 group hover:border-green-200 transition-all">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-gray-700">Income Gap Ratio (I)</span>
+                        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded shadow-sm">-13.2%</span>
                     </div>
-                    <div class="text-[10px] text-gray-500 mb-3 leading-tight">Jarak kesenjangan pendapatan semakin mengecil (makin merata).</div>
-                    <div class="flex items-center justify-between text-xs font-mono bg-white p-2 rounded-lg border border-gray-200 shadow-sm">
-                        <span class="text-gray-400 line-through">Rp 1,3jt</span>
-                        <i data-lucide="arrow-right" class="w-3 h-3 text-primaryGreen"></i>
-                        <span class="font-bold text-darkGrey">Rp 1,1jt</span>
+                    <p class="text-[10px] text-gray-500 leading-tight">Kesenjangan pendapatan membaik.</p>
+                </div>
+                 <div class="p-3 rounded-xl bg-gray-50 border border-gray-100 group hover:border-green-200 transition-all">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-bold text-gray-700">Poverty Gap Index (P1)</span>
+                        <span class="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded shadow-sm">-Rp518rb</span>
                     </div>
+                    <p class="text-[10px] text-gray-500 leading-tight">Selisih pendapatan ke garis kemiskinan berkurang.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                     <div class="p-3 rounded-xl bg-gray-50 border border-gray-100 group hover:border-green-200 transition-all">
+                        <div class="text-[10px] font-bold text-gray-700 mb-1">Severity (P2)</div>
+                        <div class="text-sm font-bold text-green-600 mb-1">-18%</div>
+                        <p class="text-[9px] text-gray-400 leading-tight">Ketimpangan menurun.</p>
+                     </div>
+                     <div class="p-3 rounded-xl bg-gray-50 border border-gray-100 group hover:border-green-200 transition-all">
+                        <div class="text-[10px] font-bold text-gray-700 mb-1">FGT Index (P3)</div>
+                        <div class="text-sm font-bold text-green-600 mb-1">-13.6%</div>
+                        <p class="text-[9px] text-gray-400 leading-tight">Distribusi membaik.</p>
+                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col border-l-8 border-darkGrey relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-5"><i data-lucide="file-text" class="w-32 h-32 text-darkGrey"></i></div>
+        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm card-hover flex flex-col border-l-8 border-primaryGreen relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-6 opacity-5">
+                <i data-lucide="award" class="w-32 h-32 text-primaryGreen"></i>
+            </div>
             
-            <div class="mb-4">
-                <div class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mb-4">
-                    <i data-lucide="lightbulb" class="w-5 h-5 text-darkGrey"></i>
+            <div class="mb-6">
+                <div class="w-12 h-12 rounded-2xl bg-green-50 flex items-center justify-center mb-4 text-primaryGreen">
+                    <i data-lucide="lightbulb" class="w-6 h-6"></i>
                 </div>
-                <h3 class="font-bold text-darkGrey text-lg">Rekomendasi Strategis</h3>
+                <h3 class="font-bold text-darkGrey text-xl">Key Insight</h3>
             </div>
             
-            <div class="flex-grow">
-                <ul class="space-y-4">
-                    <li class="flex gap-3 text-sm text-gray-600 leading-relaxed">
-                        <span class="font-bold text-primaryGreen text-lg">•</span>
-<span>
-                            <b>Ekosistem Pasar:</b> Hubungkan mustahik <i>Smartfarm</i> & <i>Bekam</i> ke rantai pasok yang lebih besar agar pendapatan stabil pasca-program.
-                        </span>
-                    </li>
-                    <li class="flex gap-3 text-sm text-gray-600 leading-relaxed">
-                        <span class="font-bold text-primaryGreen text-lg">•</span>
-                        
-                        <span>
-                            <b>Intervensi Lanjutan:</b> Dampingi intensif kelompok <span class="bg-gray-100 px-1 rounded text-darkGrey font-bold text-xs">32%</span> yang belum terentaskan.
-                        </span>
-                    </li>
-                    <li class="flex gap-3 text-sm text-gray-600 leading-relaxed">
-                        <span class="font-bold text-primaryGreen text-lg">•</span>
-                        <span>
-                            <b>Scaling Up:</b> Replikasi program <i>Smartfarm</i> ke wilayah baru karena terbukti paling efektif.
-                        </span>
-                    </li>
-                </ul>
+            <div class="flex-grow flex items-center">
+                <div class="relative">
+                    <i data-lucide="quote" class="w-8 h-8 text-green-100 absolute -top-4 -left-2 transform -scale-x-100"></i>
+                    <p class="text-base leading-relaxed text-gray-600 font-medium relative z-10 pl-4 border-l-2 border-green-100">
+                        "Program zakat produktif IZI terbukti <b class="text-primaryGreen">efektif secara kuantitatif</b> dalam menurunkan <span class="bg-green-50 px-1 rounded text-darkGrey">jumlah</span>, <span class="bg-green-50 px-1 rounded text-darkGrey">kedalaman</span>, dan <span class="bg-green-50 px-1 rounded text-darkGrey">keparahan</span> kemiskinan mustahik."
+                    </p>
+                </div>
             </div>
             
-            <div class="mt-6 pt-4 border-t border-gray-100">
-                <span class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold flex items-center">
-                    <i data-lucide="check-circle" class="w-3 h-3 mr-1 text-primaryGreen"></i> Action Plan 2026
-                </span>
+            <div class="mt-8 pt-4 border-t border-dashed border-gray-200 flex justify-between items-center">
+                <span class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold">Kesimpulan Riset</span>
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-primaryGreen"></i>
             </div>
         </div>
 
     </div>
-</div>
 
         <div id="tab-spiritual" class="section-content scroll-mt-32 space-y-10">
-            <div class="mb-8 border-b border-gray-200 pb-4">
-                <h2 class="text-xl md:text-3xl font-bold flex items-center mb-2 text-darkGrey">
-                    <div class="p-2.5 rounded-xl mr-4 text-white bg-gradient-to-br from-primaryGreen to-secondaryGreen shadow-lg shadow-green-200"><i data-lucide="heart" class="w-5 h-5 md:w-6 md:h-6"></i></div>
-                    Spiritual & CIBEST
-                </h2>
-                <p class="text-xs md:text-sm ml-[4.5rem] text-gray-500">Kesejahteraan holistik</p>
+    
+    <div class="mb-8 border-b border-gray-200 pb-4">
+        <h2 class="text-xl md:text-3xl font-bold flex items-center mb-2 text-darkGrey">
+            <div class="p-2.5 rounded-xl mr-4 text-white bg-gradient-to-br from-primaryGreen to-secondaryGreen shadow-lg shadow-green-200">
+                <i data-lucide="heart" class="w-5 h-5 md:w-6 md:h-6"></i>
             </div>
+            Kesejahteraan Model CIBEST
+        </h2>
+        <p class="text-xs md:text-sm ml-[4.5rem] text-gray-500">Perubahan rata-rata dari 5 zona pengentasan kemiskinan (sebelum–sesudah)</p>
+    </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden card-hover">
-                    <div class="absolute top-0 right-0 p-8 opacity-5"><i data-lucide="target" class="w-48 h-48 text-primaryGreen"></i></div>
-                    <h3 class="font-bold mb-1 z-10 relative text-darkGrey text-lg">Kuadran CIBEST</h3>
-                    <p class="text-xs text-gray-500 mb-6 z-10 relative">Peta kesejahteraan Material (Uang) & Spiritual (Ibadah).</p>
-                   
-                    <div class="space-y-4 relative z-10">
-                        <div class="flex items-center justify-between p-4 bg-green-50/80 rounded-2xl border border-green-100 hover:shadow-md transition-shadow">
-                            <div>
-                                <span class="font-bold text-sm text-green-800 flex items-center"><i data-lucide="smile" class="w-4 h-4 mr-2"></i> Kuadran I (Sejahtera)</span>
-                                <span class="text-[10px] text-green-700 block ml-6">Kaya Harta & Kaya Hati</span>
-                            </div>
-                            <div class="flex items-center bg-white px-3 py-1 rounded-lg shadow-sm">
-                                <span class="text-gray-400 text-xs line-through mr-2">38%</span>
-                                <i data-lucide="arrow-right" class="mr-2 text-primaryGreen w-3 h-3"></i>
-                                <span class="font-extrabold text-lg text-primaryGreen">66%</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-white/50 rounded-2xl border border-gray-100 hover:bg-gray-50 transition-colors">
-                            <div>
-                                <span class="text-gray-600 text-sm font-medium">Kuadran II (Miskin Materi)</span>
-                                <span class="text-[10px] text-gray-400 block">Miskin Harta, tapi Kaya Hati</span>
-                            </div>
-                            <span class="font-bold text-sm bg-gray-100 px-3 py-1 rounded-lg">Turun ke 33%</span>
-                        </div>
-                        <div class="flex items-center justify-between p-4 bg-white/50 rounded-2xl border border-gray-100 opacity-60">
-                            <div>
-                                <span class="text-gray-400 text-sm">Kuadran III (Miskin Spirit)</span>
-                                <span class="text-[10px] text-gray-300 block">Kaya Harta, tapi Miskin Hati</span>
-                            </div>
-                            <span class="font-bold text-sm bg-gray-50 px-3 py-1 rounded-lg text-gray-400">0% (Nihil)</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm card-hover">
-                    <h3 class="font-bold mb-2 text-darkGrey text-lg">Indeks Kesalehan</h3>
-                    <p class="text-xs text-gray-500 mb-6">Mengukur kualitas ibadah (Skala 1-5) pasca-<b>pendampingan rutin</b>.</p>
-                   
-                    <div class="space-y-6">
-                        <div class="group">
-                            <div class="flex justify-between text-xs mb-2">
-                                <span class="font-bold text-darkGrey">Kesadaran ZIS</span>
-                                <span class="font-bold text-primaryGreen bg-green-50 px-2 py-0.5 rounded">4.65 (+0.2)</span>
-                            </div>
-                            <div class="w-full bg-gray-100 rounded-full h-4 shadow-inner">
-                                <div class="h-4 rounded-full bg-gradient-to-r from-primaryGreen to-secondaryGreen relative shadow-sm w-0 animate-[width-grow_1s_ease-out_forwards]" style="width: 93%">
-                                    <div class="absolute inset-0 bg-white/20 rounded-full"></div>
-                                </div>
-                            </div>
-                            <p class="text-[10px] text-gray-400 mt-1 italic">Kesadaran untuk kembali berbagi (tangan di atas).</p>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between text-xs mb-2">
-                                <span class="font-bold text-darkGrey">Harmoni Keluarga</span>
-                                <span class="font-bold text-gray-500">4.43</span>
-                            </div>
-                            <div class="w-full bg-gray-100 rounded-full h-4 shadow-inner"><div class="h-4 rounded-full bg-gray-400 relative w-0 animate-[width-grow_1s_ease-out_0.2s_forwards]" style="width: 88%"></div></div>
-                        </div>
-                        <div class="group">
-                            <div class="flex justify-between text-xs mb-2">
-                                <span class="font-bold text-darkGrey">Ibadah Wajib</span>
-                                <span class="font-bold text-gray-500">4.24</span>
-                            </div>
-                            <div class="w-full bg-gray-100 rounded-full h-4 shadow-inner"><div class="h-4 rounded-full bg-gray-400 relative w-0 animate-[width-grow_1s_ease-out_0.4s_forwards]" style="width: 84.8%"></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-8 p-6 md:p-8 rounded-r-2xl border-l-8 border-darkGrey bg-white shadow-lg flex items-start gap-4">
-                 <div class="hidden md:block bg-gray-100 p-3 rounded-full"><i data-lucide="file-text" class="w-6 h-6 text-darkGrey"></i></div>
-                <div>
-                    <h4 class="font-bold mb-2 text-darkGrey text-lg">Insight & Kebijakan</h4>
-                    <p class="text-base leading-relaxed text-gray-600 text-justify">Tingginya skor spiritual memvalidasi model <b>"Pendampingan Terintegrasi"</b> IZI. Mustahik tidak hanya dibantu modal, tapi dibina mentalitasnya menjadi Muzakki.</p>
-                </div>
-            </div>
+    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm card-hover overflow-hidden relative">
+        <div class="absolute top-0 right-0 p-8 opacity-5">
+            <i data-lucide="bar-chart-2" class="w-48 h-48 text-primaryGreen"></i>
         </div>
+
+        <div class="overflow-x-auto relative z-10">
+            <table class="w-full text-sm text-left text-gray-600">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-200">
+                    <tr>
+                        <th scope="col" class="px-6 py-4 rounded-tl-xl rounded-bl-xl">Kuadran</th>
+                        <th scope="col" class="px-6 py-4 text-center">Sebelum</th>
+                        <th scope="col" class="px-6 py-4 text-center">Sesudah</th>
+                        <th scope="col" class="px-6 py-4 text-center rounded-tr-xl rounded-br-xl">Perubahan</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                    <tr class="bg-white hover:bg-green-50/50 transition-colors">
+                        <td class="px-6 py-4 font-bold text-darkGrey flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-primaryGreen"></div>
+                            Kuadran I (Sejahtera)
+                        </td>
+                        <td class="px-6 py-4 text-center">29,4%</td>
+                        <td class="px-6 py-4 text-center font-bold text-darkGrey">50,2%</td>
+                        <td class="px-6 py-4 text-center font-bold text-primaryGreen bg-green-50 rounded-xl">+20,8%</td>
+                    </tr>
+                    <tr class="bg-white hover:bg-gray-50 transition-colors">
+                        <td class="px-6 py-4 font-medium text-darkGrey flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                            Kuadran II (Miskin Materiil)
+                        </td>
+                        <td class="px-6 py-4 text-center">66,4%</td>
+                        <td class="px-6 py-4 text-center font-bold text-darkGrey">49%</td>
+                        <td class="px-6 py-4 text-center text-green-600">-17,4%</td>
+                    </tr>
+                    <tr class="bg-white hover:bg-gray-50 transition-colors">
+                        <td class="px-6 py-4 font-medium text-darkGrey flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                            Kuadran III (Miskin Spiritual)
+                        </td>
+                        <td class="px-6 py-4 text-center">0,2%</td>
+                        <td class="px-6 py-4 text-center font-bold text-darkGrey">0%</td>
+                        <td class="px-6 py-4 text-center text-green-600">-0,2%</td>
+                    </tr>
+                    <tr class="bg-white hover:bg-gray-50 transition-colors">
+                        <td class="px-6 py-4 font-medium text-darkGrey flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                            Kuadran IV (Miskin Absolut)
+                        </td>
+                        <td class="px-6 py-4 text-center">3,8%</td>
+                        <td class="px-6 py-4 text-center font-bold text-darkGrey">1%</td>
+                        <td class="px-6 py-4 text-center text-green-600">-2,8%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden flex flex-col md:flex-row gap-6">
+        <div class="hidden md:flex w-12 h-12 bg-blue-50 rounded-2xl items-center justify-center flex-shrink-0 text-blue-500">
+            <i data-lucide="lightbulb" class="w-6 h-6"></i>
+        </div>
+
+        <div class="flex-grow">
+            <h4 class="font-bold text-darkGrey text-xl mb-4 flex items-center">
+                <span class="md:hidden mr-3 text-blue-500 bg-blue-50 p-2 rounded-lg"><i data-lucide="lightbulb" class="w-5 h-5"></i></span>
+                Insight Data
+            </h4>
+            
+            <ul class="space-y-3 text-sm md:text-base text-gray-600 leading-relaxed">
+                <li class="flex gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-primaryGreen flex-shrink-0 mt-0.5"></i>
+                    <span>Rata-rata <b>50,2%</b> rumah tangga mustahik berada pada Kuadran I (Sejahtera).</span>
+                </li>
+                <li class="flex gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5"></i>
+                    <span>Rata-rata <b>49%</b> masih berada pada Kuadran II (Miskin Material).</span>
+                </li>
+                <li class="flex gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5"></i>
+                    <span>Tidak terdapat kemiskinan spiritual murni.</span>
+                </li>
+                <li class="flex gap-3">
+                    <i data-lucide="check-circle-2" class="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5"></i>
+                    <span>Rata-rata hanya <b>1%</b> berada pada kemiskinan absolut (material + spiritual).</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
 
         <div id="tab-program" class="section-content scroll-mt-32 space-y-10">
             <div class="mb-8 border-b border-gray-200 pb-4">
@@ -554,9 +732,9 @@
                     <div class="group">
                         <div class="flex justify-between mb-2">
                             <span class="font-bold flex items-center text-darkGrey text-sm"><span class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-gray-400 text-xs font-bold mr-3 border border-gray-100">#2</span> Keterampilan Bekam</span>
-                            <span class="font-bold text-sm text-primaryGreen bg-green-50 px-2 py-0.5 rounded">89% Berhasil</span>
+                            <span class="font-bold text-sm text-primaryGreen bg-green-50 px-2 py-0.5 rounded">82% Berhasil</span>
                         </div>
-                        <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden shadow-inner"><div class="h-full rounded-full bg-gradient-to-r from-primaryGreen to-secondaryGreen w-0 animate-[width-grow_1.5s_ease-out_0.2s_forwards]" style="width: 89%"></div></div>
+                        <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden shadow-inner"><div class="h-full rounded-full bg-gradient-to-r from-primaryGreen to-secondaryGreen w-0 animate-[width-grow_1.5s_ease-out_0.2s_forwards]" style="width: 82%"></div></div>
                     </div>
                     <div class="group opacity-80 hover:opacity-100 transition-opacity">
                         <div class="flex justify-between mb-2">
@@ -605,12 +783,12 @@
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="mt-6 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-green-50 to-white border border-green-100 shadow-sm flex flex-col justify-center hover:shadow-md transition-shadow">
-                    <h4 class="flex items-center font-bold mb-4 text-darkGrey text-lg"><span class="bg-white p-2 rounded-full shadow-sm mr-3"><i data-lucide="thumbs-up" class="w-5 h-5 text-primaryGreen"></i></span> Pertahankan & Skalakan</h4>
-                    <p class="text-sm leading-relaxed text-gray-600 text-justify">Program <b>Smartfarm</b> dan <b>Bekam</b> memiliki success rate &gt;85%. Ini menunjukkan program berbasis <i>Hard Skill</i> spesifik dan pertanian terukur lebih efektif dibanding bantuan modal umum.</p>
+                    <h4 class="flex items-center font-bold mb-4 text-darkGrey text-lg"><span class="bg-white p-2 rounded-full shadow-sm mr-3"><i data-lucide="thumbs-up" class="w-5 h-5 text-primaryGreen"></i></span> Pertahankan</h4>
+                    <p class="text-sm leading-relaxed text-gray-600 text-justify">Program <b>Smartfarm</b> dan <b>Bekam</b> memiliki success rate &gt;80%. Ini menunjukkan program berbasis <i>Hard Skill</i> spesifik dan pertanian terukur lebih efektif dibanding bantuan modal umum.</p>
                 </div>
                 <div class="mt-6 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-red-50 to-white border border-red-100 shadow-sm flex flex-col justify-center hover:shadow-md transition-shadow">
                     <h4 class="flex items-center font-bold mb-4 text-red-800 text-lg"><span class="bg-white p-2 rounded-full shadow-sm mr-3"><i data-lucide="alert-triangle" class="w-5 h-5 text-red-500"></i></span> Perlu Evaluasi & Redesain</h4>
-                    <p class="text-sm leading-relaxed text-red-700/80 text-justify">Program <b>Bina Ternak</b> dan <b>Jahit</b> memiliki tingkat keberhasilan di bawah 40%. Disarankan audit model bisnis, apakah terkendala siklus panen saat survei, atau kurangnya akses pasar.</p>
+                    <p class="text-sm leading-relaxed text-red-700/80 text-justify">Program <b>Bina Ternak</b> dan <b>JHT</b> (Jahit, Pangkas, Tempe) memiliki tingkat keberhasilan di bawah 40%.Disarankan evaluasi dan redesain model bisnis. Apakah terkendala risiko usaha tinggi (penyakit ternak, fluktuasi harga pakan), permintaan pasar, skala usaha terlalu kecil, margin usaha tipis atau kurangnya pendampingan intensif.</p>
                 </div>
             </div>
         </div>
